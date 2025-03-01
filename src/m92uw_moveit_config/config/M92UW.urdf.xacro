@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="M92UW">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import M92UW urdf file -->
+    <xacro:include filename="$(find human_description)/robots/M92UW/M92UW.urdf.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="M92UW.ros2_control.xacro" />
+
+
+    <xacro:M92UW_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

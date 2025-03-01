@@ -1,0 +1,19 @@
+<!-- 
+<mujoco model="combined_model">
+    <asset>
+    <mesh name="my_mesh" file="cup_scaled.obj" />
+    </asset>
+    <worldbody>
+        <geom type="mesh" mesh="my_mesh" rgba="1 1 0 1" />
+    </worldbody>
+
+</mujoco> -->
+
+
+
+<mujoco model="red_box">
+    <compiler angle="degree" />
+    <worldbody>
+        <geom type="box" size="0.1 0.1 0.1" pos="0 0 1" /> <!-- 定义一个红色实心小方块 -->
+    </worldbody>
+</mujoco>

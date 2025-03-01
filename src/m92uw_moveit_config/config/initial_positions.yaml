@@ -1,0 +1,35 @@
+# Default initial positions for M92UW's ros2_control fake system
+
+initial_positions:
+  ankle_p_joint: 0
+  head1_y_joint: 0
+  head2_p_joint: 0
+  knee_p_joint: 0
+  l_arm1_shoulder_p_joint: 0
+  l_arm2_shoulder_r_joint: 0
+  l_arm3_shoulder_y_joint: 0
+  l_arm4_elbow_p_joint: 0
+  l_arm5_wrist_y_joint: 0
+  l_arm6_wrist_p_joint: 0
+  l_arm7_wrist_r_joint: 0
+  l_index_mcp_joint: 0
+  l_middle_mcp_joint: 0
+  l_pinky_mcp_joint: 0
+  l_ring_mcp_joint: 0
+  l_thumb_cmc_p_joint: 0
+  l_thumb_cmc_y_joint: 0
+  r_arm1_shoulder_p_joint: 0
+  r_arm2_shoulder_r_joint: 0
+  r_arm3_shoulder_y_joint: 0
+  r_arm4_elbow_p_joint: 0
+  r_arm5_wrist_y_joint: 0
+  r_arm6_wrist_p_joint: 0
+  r_arm7_wrist_r_joint: 0
+  r_index_mcp_joint: 0
+  r_middle_mcp_joint: 0
+  r_pinky_mcp_joint: 0
+  r_ring_mcp_joint: 0
+  r_thumb_cmc_p_joint: 0
+  r_thumb_cmc_y_joint: 0
+  waist1_p_joint: 0
+  waist2_y_joint: 0

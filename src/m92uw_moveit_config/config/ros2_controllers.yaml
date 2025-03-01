@@ -1,0 +1,137 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    trunk_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    head_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    left_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    right_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    body_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    left_hand_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    right_hand_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+trunk_controller:
+  ros__parameters:
+    joints:
+      - ankle_p_joint
+      - knee_p_joint
+      - waist1_p_joint
+      - waist2_y_joint
+    command_interfaces:
+      []
+    state_interfaces:
+      []
+head_controller:
+  ros__parameters:
+    joints:
+      - head1_y_joint
+      - head2_p_joint
+    command_interfaces:
+      []
+    state_interfaces:
+      []
+left_arm_controller:
+  ros__parameters:
+    joints:
+      - l_arm1_shoulder_p_joint
+      - l_arm2_shoulder_r_joint
+      - l_arm3_shoulder_y_joint
+      - l_arm4_elbow_p_joint
+      - l_arm5_wrist_y_joint
+      - l_arm6_wrist_p_joint
+      - l_arm7_wrist_r_joint
+    command_interfaces:
+      []
+    state_interfaces:
+      []
+right_arm_controller:
+  ros__parameters:
+    joints:
+      - r_arm1_shoulder_p_joint
+      - r_arm2_shoulder_r_joint
+      - r_arm3_shoulder_y_joint
+      - r_arm4_elbow_p_joint
+      - r_arm5_wrist_y_joint
+      - r_arm6_wrist_p_joint
+      - r_arm7_wrist_r_joint
+    command_interfaces:
+      []
+    state_interfaces:
+      []
+body_controller:
+  ros__parameters:
+    joints:
+      - ankle_p_joint
+      - knee_p_joint
+      - waist1_p_joint
+      - waist2_y_joint
+      - head1_y_joint
+      - head2_p_joint
+      - l_arm1_shoulder_p_joint
+      - l_arm2_shoulder_r_joint
+      - l_arm3_shoulder_y_joint
+      - l_arm4_elbow_p_joint
+      - l_arm5_wrist_y_joint
+      - l_arm6_wrist_p_joint
+      - l_arm7_wrist_r_joint
+      - r_arm1_shoulder_p_joint
+      - r_arm2_shoulder_r_joint
+      - r_arm3_shoulder_y_joint
+      - r_arm4_elbow_p_joint
+      - r_arm5_wrist_y_joint
+      - r_arm6_wrist_p_joint
+      - r_arm7_wrist_r_joint
+    command_interfaces:
+      []
+    state_interfaces:
+      []
+left_hand_controller:
+  ros__parameters:
+    joints:
+      - l_index_mcp_joint
+      - l_middle_mcp_joint
+      - l_pinky_mcp_joint
+      - l_ring_mcp_joint
+      - l_thumb_cmc_y_joint
+      - l_thumb_cmc_p_joint
+    command_interfaces:
+      []
+    state_interfaces:
+      []
+right_hand_controller:
+  ros__parameters:
+    joints:
+      - r_index_mcp_joint
+      - r_middle_mcp_joint
+      - r_pinky_mcp_joint
+      - r_ring_mcp_joint
+      - r_thumb_cmc_y_joint
+      - r_thumb_cmc_p_joint
+    command_interfaces:
+      []
+    state_interfaces:
+      []

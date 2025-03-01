@@ -1,0 +1,48 @@
+running egg_info
+creating ../../build/mirobot_description/mirobot_description.egg-info
+writing ../../build/mirobot_description/mirobot_description.egg-info/PKG-INFO
+writing dependency_links to ../../build/mirobot_description/mirobot_description.egg-info/dependency_links.txt
+writing entry points to ../../build/mirobot_description/mirobot_description.egg-info/entry_points.txt
+writing requirements to ../../build/mirobot_description/mirobot_description.egg-info/requires.txt
+writing top-level names to ../../build/mirobot_description/mirobot_description.egg-info/top_level.txt
+writing manifest file '../../build/mirobot_description/mirobot_description.egg-info/SOURCES.txt'
+reading manifest file '../../build/mirobot_description/mirobot_description.egg-info/SOURCES.txt'
+writing manifest file '../../build/mirobot_description/mirobot_description.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/mirobot_description/build
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/mirobot_description/build/lib
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/mirobot_description/build/lib/mirobot_description
+copying mirobot_description/__init__.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/mirobot_description/build/lib/mirobot_description
+running install
+running install_lib
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/lib/python3.10/site-packages/mirobot_description
+copying /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/mirobot_description/build/lib/mirobot_description/__init__.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/lib/python3.10/site-packages/mirobot_description
+byte-compiling /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/lib/python3.10/site-packages/mirobot_description/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/ament_index
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/ament_index/resource_index
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/ament_index/resource_index/packages
+copying resource/mirobot_description -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/ament_index/resource_index/packages
+copying package.xml -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/urdf
+copying urdf/mi_robot_arm.urdf -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/urdf
+copying urdf/arm.urdf -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/urdf
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+copying meshes/RM75_6F/base_link.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+copying meshes/RM75_6F/Link7.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+copying meshes/RM75_6F/Link2.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+copying meshes/RM75_6F/Link4.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+copying meshes/RM75_6F/Link1.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+copying meshes/RM75_6F/Link6.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+copying meshes/RM75_6F/Link3.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+copying meshes/RM75_6F/Link5.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/RM75_6F
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/DH_claw_v2
+copying meshes/DH_claw_v2/panda_hand.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/DH_claw_v2
+copying meshes/DH_claw_v2/panda_leftfinger.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/DH_claw_v2
+copying meshes/DH_claw_v2/panda_rightfinger.STL -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/share/mirobot_description/meshes/DH_claw_v2
+running install_egg_info
+Copying ../../build/mirobot_description/mirobot_description.egg-info to /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/mirobot_description/lib/python3.10/site-packages/mirobot_description-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/mirobot_description/install.log'

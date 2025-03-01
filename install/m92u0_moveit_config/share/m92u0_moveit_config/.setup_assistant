@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: human_description
+    relative_path: robots/M92U0/M92U0.urdf.xacro
+  srdf:
+    relative_path: config/M92U0.srdf
+  package_settings:
+    author_name: Neal.li
+    author_email: lixiangyuan@xiaomi.com
+    generated_timestamp: 1739414219
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

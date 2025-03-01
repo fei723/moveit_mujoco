@@ -1,0 +1,4 @@
+source;share/m92u0_moveit_config/local_setup.bash
+source;share/m92u0_moveit_config/local_setup.dsv
+source;share/m92u0_moveit_config/local_setup.sh
+source;share/m92u0_moveit_config/local_setup.zsh

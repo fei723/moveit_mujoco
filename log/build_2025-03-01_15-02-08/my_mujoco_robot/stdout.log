@@ -1,0 +1,43 @@
+running egg_info
+creating ../../build/my_mujoco_robot/my_mujoco_robot.egg-info
+writing ../../build/my_mujoco_robot/my_mujoco_robot.egg-info/PKG-INFO
+writing dependency_links to ../../build/my_mujoco_robot/my_mujoco_robot.egg-info/dependency_links.txt
+writing entry points to ../../build/my_mujoco_robot/my_mujoco_robot.egg-info/entry_points.txt
+writing requirements to ../../build/my_mujoco_robot/my_mujoco_robot.egg-info/requires.txt
+writing top-level names to ../../build/my_mujoco_robot/my_mujoco_robot.egg-info/top_level.txt
+writing manifest file '../../build/my_mujoco_robot/my_mujoco_robot.egg-info/SOURCES.txt'
+reading manifest file '../../build/my_mujoco_robot/my_mujoco_robot.egg-info/SOURCES.txt'
+writing manifest file '../../build/my_mujoco_robot/my_mujoco_robot.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot
+copying my_mujoco_robot/main_simulation.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot
+copying my_mujoco_robot/ros_publisher_init.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot
+copying my_mujoco_robot/test.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot
+copying my_mujoco_robot/__init__.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot
+copying my_mujoco_robot/asset_init.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot
+running install
+running install_lib
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot
+copying /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot/main_simulation.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot
+copying /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot/ros_publisher_init.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot
+copying /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot/test.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot
+copying /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot/__init__.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot
+copying /home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/build/lib/my_mujoco_robot/asset_init.py -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot
+byte-compiling /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot/main_simulation.py to main_simulation.cpython-310.pyc
+byte-compiling /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot/ros_publisher_init.py to ros_publisher_init.cpython-310.pyc
+byte-compiling /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot/test.py to test.cpython-310.pyc
+byte-compiling /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot/asset_init.py to asset_init.cpython-310.pyc
+running install_data
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/share/ament_index
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/share/ament_index/resource_index
+creating /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/share/ament_index/resource_index/packages
+copying resource/my_mujoco_robot -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/share/ament_index/resource_index/packages
+copying package.xml -> /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/share/my_mujoco_robot
+running install_egg_info
+Copying ../../build/my_mujoco_robot/my_mujoco_robot.egg-info to /home/shifei/Downloads/Isaac_sim_assets/moveit_des/install/my_mujoco_robot/lib/python3.10/site-packages/my_mujoco_robot-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/shifei/Downloads/Isaac_sim_assets/moveit_des/build/my_mujoco_robot/install.log'
