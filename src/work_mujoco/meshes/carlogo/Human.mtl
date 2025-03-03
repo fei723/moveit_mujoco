@@ -1,0 +1,93 @@
+# Blender 4.2.1 LTS MTL File: 'Human_001.blend'
+# www.blender.org
+
+newmtl eyebrow002.002
+Ns 4.999998
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd C:/eyebrow002.png
+map_d C:/eyebrow002.png
+
+newmtl eyelashes01.001
+Ns 4.999998
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd C:/eyelashes01.png
+map_d C:/eyelashes01.png
+
+newmtl high-poly.001
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd C:/brown_eye.png
+map_d C:/brown_eye.png
+
+newmtl male_elegantsuit01.002
+Ns 0.999999
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd C:/male_elegantsuit01_diffuse.png
+map_d C:/male_elegantsuit01_diffuse.png
+
+newmtl no_bone
+Ns 4.999998
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:/middleage_lightskinned_male_diffuse.png
+
+newmtl shoes01.002
+Ns 3.999998
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:/shoes01_diffuse.png
+map_Bump -bm 1.000000 C:/shoes01_normal.png
+
+newmtl short02.002
+Ns 9.600003
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd C:/short02_diffuse.png
+map_d C:/short02_diffuse.png
+
+newmtl teeth_base.001
+Ns 8.000002
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd C:/teeth.png
+map_d C:/teeth.png
+
+newmtl tongue01.001
+Ns 1.960997
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:/tongue01_diffuse.png

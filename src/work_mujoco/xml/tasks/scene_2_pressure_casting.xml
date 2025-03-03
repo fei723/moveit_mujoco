@@ -1,0 +1,223 @@
+<mujoco model="scene2_pre_cas">
+    <compiler meshdir="../../meshes/pressure_casting" angle="radian" eulerseq="zyx"/>
+
+    <!--<custom>-->
+    <!--    <numeric data="8" name="max_contact_points"/>-->
+    <!--</custom>-->
+
+    <!--<option iterations="8" timestep="0.01" impratio="10"/>-->
+
+    <!--<statistic center="0 -0.1 0.2" extent="0.6" meansize="0.05"/>-->
+
+    <asset>
+        <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.5 0.5 0.5" rgb2="0.5 0.5 0.5"
+                markrgb="0.3 0.3 0.3" width="300" height="300"/>
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="2 2"/>
+        <material name="red_light" rgba="1.0 0.0 0.0 1.0" emission="1.0" />
+        <material name="green_light" rgba="0.0 1.0 0.0 1.0" emission="1.0"/>
+        <material name="yellow_light" rgba="1.0 1.0 0.0 1.0" emission="1.0" />
+        <mesh name="M14bolt" file="bolt.obj" />
+        <mesh name="bolt_base" file="bolt_assem.obj" />
+        <mesh name="table" file="table.stl" />
+
+
+
+
+
+    </asset>
+
+<!--    <default class="active_adhesion">-->
+  <!--
+    Geoms in the active_adhesion class are "inflated" with a margin of 1cm, but contacts are
+    activated only at a depth gap of 1cm, leading to a layer of inactive contacts at a 1cm
+    distance from the surface. However the contacts can be used by the adhesion actuator.
+  -->
+    <!-- <geom rgba="1 1 1 1" margin=".01" gap=".01"/> -->
+
+      <!-- <default class="visual">
+        <geom type="mesh" mass="0" group="2" contype="0" conaffinity="0"/>
+      </default>
+      <default class="collision">
+        <geom group="3" condim="6" friction="1 5e-3 5e-4" solref=".01 1"/>
+      </default> -->
+<!--   </default>-->
+
+   
+    
+    <visual>
+        <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <global azimuth="90" elevation="-20"/>
+        <quality shadowsize="8192"/>
+    </visual>
+    <worldbody>
+        <light pos="2.058333333 1.275 3" dir="0 0 -1" directional="false"   diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 1.275 3" dir="0 0 -1" directional="false"  diffuse=".2 .2 .2"/>
+        <light pos="2.058333333 -1.275 3" dir="0 0 -1" directional="false"  diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 -1.275 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <light pos="-.225 1.5 3" dir="0 0 -1" directional="false"           diffuse=".2 .2 .2"/>
+        <!--<light pos="3 -2.84 2.5" dir="0 0 -1" diffuse=".5 .5 .5" directional="true"/>-->
+        <geom name="ground" pos="0 0 0" size="1.98 1.79 0.005" type="plane" material="groundplane" condim="1"/>
+
+
+<!-- 
+        <body name="wall">
+            <geom name="wall_west" size="0.1 1.29 1" pos="-2.08 0.5 1" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom name="wall_east" size="0.1 1.29 1" pos=" 2.08 0.5 1" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom name="wall_north" size="0.535 0.1 1" pos="1.645 1.89 1" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+        </body> -->
+
+        <body name="fence">
+            <geom name="fence_west" size="0.02 0.64 0.2" pos="-0.65 1.15 0.2" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom name="fence_east" size="0.02 0.64 0.2" pos=" 0.75 1.15 0.2" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom name="fence_south" size="0.7 0.02 0.2" pos="0.06 0.53 0.2" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+        </body>
+
+        <body name="bolt_place_1" pos="-0.4345 0.9055 0.51">
+            <geom name="holder_1" size="0.020 0.51 " pos="0 0 0" euler="0 0 0" type="cylinder" rgba="1 1 1 1"/>
+            <geom name="base_1" size="0.020 0.014 " pos="0 0 0.524" euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <body name="bolt_mag_1">
+                <geom name="middle_1" size="0.0094 0.018" pos="0 0 0.55" euler="0 0 0" type="cylinder" rgba="1 1 1 0" />
+                <geom name="pin_1" size="0.0032 0.00575" pos="0 0 0.57" euler="0 0 0" type="cylinder" rgba="1 1 1 0" />
+            </body>
+            <geom type="mesh" mesh="bolt_base" contype="0" conaffinity="0" pos="0 0 0.51" euler="0 -1.57 0" rgba="1 1 1 1"/>
+        </body>
+        <body name="bolt_place_2" pos="0.5545 0.9055 0.51">
+            <geom name="holder_2" size="0.020 0.51 " pos="0 0 0" euler="0 0 0" type="cylinder" rgba="1 1 1 1"/>
+            <geom name="base_2" size="0.020 0.014 " pos="0 0 0.524" euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <body name="bolt_mag_2">
+                <geom name="middle_2" size="0.0094 0.018" pos="0 0 0.55" euler="0 0 0" type="cylinder" rgba="1 1 1 0" />
+                <geom name="pin_2" size="0.0032 0.00575" pos="0 0 0.57" euler="0 0 0" type="cylinder" rgba="1 1 1 0" />
+            </body>
+            <geom type="mesh" mesh="bolt_base" contype="0" conaffinity="0" pos="0 0 0.51" euler="0 -1.57 0" rgba="1 1 1 1"/>
+        </body>
+        <body name="bolt_place_3" pos="-0.5345 1.5545 0.485">
+            <geom name="holder_3" size="0.020 0.51 " pos="0 0 0" euler="0 0 0" type="cylinder" rgba="1 1 1 1"/>
+            <geom name="base_3" size="0.020 0.014 " pos="0 0 0.524" euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <body name="bolt_mag_3">
+                <geom name="middle_3" size="0.0094 0.018" pos="0 0 0.55" euler="0 0 0" type="cylinder" rgba="1 1 1 0" />
+                <geom name="pin_3" size="0.0032 0.00575" pos="0 0 0.57" euler="0 0 0" type="cylinder" rgba="1 1 1 0" />
+            </body>
+            <geom type="mesh" mesh="bolt_base" contype="0" conaffinity="0" pos="0 0 0.51" euler="0 -1.57 0" rgba="1 1 1 1"/>
+        </body>
+        <body name="bolt_place_4" pos="0.6545 1.5545 0.485">
+            <geom name="holder_4" size="0.020 0.51 " pos="0 0 0" euler="0 0 0" type="cylinder" rgba="1 1 1 1"/>
+            <geom name="base_4" size="0.020 0.014 " pos="0 0 0.524" euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <body name="bolt_mag_4">
+                <geom name="middle_4" size="0.0094 0.018" pos="0 0 0.55" euler="0 0 0" type="cylinder" rgba="1 1 1 0" />
+                <geom name="pin_4" size="0.0032 0.00575" pos="0 0 0.57" euler="0 0 0" type="cylinder" rgba="1 1 1 0" />
+            </body>
+            <geom type="mesh" mesh="bolt_base" contype="0" conaffinity="0" pos="0 0 0.51" euler="0 -1.57 0" rgba="1 1 1 1"/>
+        </body> 
+        
+
+
+
+        <body name="table" pos="0.6 -1.59 0.6865" euler="3.14 3.14 0">
+            <geom type="mesh" mesh="table" contype="0" conaffinity="0" rgba="1 1 1 1"/>
+            <geom type="box" pos="0 0 -0.015" size="0.7 0.2 0.1" rgba="1 1 1 0"/>
+        </body>
+
+        <!-- <body name="indicator_light">
+            <geom name="indicator_light_green" size="0.04 0.02" pos="2.08 -0.75 2.21" euler="0 0 0" type="cylinder" material="green_light"/>
+            <geom name="indicator_light_yellow" size="0.04 0.02" pos="2.08 -0.75 2.25" euler="0 0 0" type="cylinder" material="yellow_light"/>
+            <geom name="indicator_light_red" size="0.04 0.02" pos="2.08 -0.75 2.29" euler="0 0 0" type="cylinder" material="red_light"/>
+        </body>
+
+        <body name="operation_panel">
+            <geom name="operation_panel" size="0.1 0.05 0.1" pos="2.08 -0.84 1.35" euler="0 0 0" type="box" rgba="0 0 0 1"/>
+        </body> -->
+
+        <body name="M14bolt_1" pos="0.950 -1.492 0.799" euler="0 0 0">
+            <joint type="free"/>
+            <geom type="mesh" mesh="M14bolt" contype="0" conaffinity="0" rgba="1 1 1 1"  />
+            <geom name="bolt_1_01"  pos="0 0.008645 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_02"  pos="0.008645 0 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_03"  pos="0 -0.008645 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_04"  pos="-0.008645 0 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_05"  pos="0.006112 -0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_06"  pos="-0.006112 0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_07"  pos="-0.006112 -0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_08"  pos="0.006112 0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            
+            <geom name="bolt_1_09"  pos="0 0.0135 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_10"  pos="0.0135 0 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_11"  pos="0 -0.0135 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_12"  pos="-0.0135 0 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+
+            <geom name="bolt_1_13"  pos="0.00954 0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_14"  pos="-0.00954 0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_15"  pos="0.00954 -0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_1_16"  pos="-0.00954 -0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+
+        </body>
+
+        <body name="M14bolt_test" pos="-0.4345 0.9055 1.08" euler="0 0 0">
+            <joint type="free"/>
+            <geom type="mesh" mesh="M14bolt" contype="0" conaffinity="0" rgba="1 1 1 1"  />
+            <geom name="bolt_test_01"  pos="0 0.008645 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_02"  pos="0.008645 0 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_03"  pos="0 -0.008645 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_04"  pos="-0.008645 0 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_05"  pos="0.006112 -0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_06"  pos="-0.006112 0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_07"  pos="-0.006112 -0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_08"  pos="0.006112 0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            
+            <geom name="bolt_test_09"  pos="0 0.0135 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_10"  pos="0.0135 0 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_11"  pos="0 -0.0135 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_12"  pos="-0.0135 0 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+
+            <geom name="bolt_test_13"  pos="0.00954 0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_14"  pos="-0.00954 0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_15"  pos="0.00954 -0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_test_16"  pos="-0.00954 -0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+        </body>
+
+        <body name="M14bolt_2" pos="0.250 -1.492 0.799" euler="0 0 0">
+            <joint type="free"/>
+            <geom type="mesh" mesh="M14bolt" contype="0" conaffinity="0" rgba="1 1 1 1"  />
+            <geom name="bolt_2_01"  pos="0 0.008645 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_02"  pos="0.008645 0 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_03"  pos="0 -0.008645 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_04"  pos="-0.008645 0 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_05"  pos="0.006112 -0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_06"  pos="-0.006112 0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_07"  pos="-0.006112 -0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_08"  pos="0.006112 0.006112 0.0274" size="0.00244 0.02 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            
+            <geom name="bolt_2_09"  pos="0 0.0135 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_10"  pos="0.0135 0 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_11"  pos="0 -0.0135 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_12"  pos="-0.0135 0 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+
+            <geom name="bolt_2_13"  pos="0.00954 0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_14"  pos="-0.00954 0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_15"  pos="0.00954 -0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+            <geom name="bolt_2_16"  pos="-0.00954 -0.00954 0.0037" size="0.0055 0.0037 "  euler="0 0 0" type="cylinder" rgba="1 1 1 0"/>
+        </body> 
+
+        <!-- <body name="M14bolt_2" pos="1.24 -1.59 0.8">
+            <geom type="mesh" mesh="M14bolt" rgba="1 1 1 1" />
+        </body>
+        <body name="M14bolt_3" pos="1.28 -1.55 0.8">
+            <geom type="mesh" mesh="M14bolt" rgba="1 1 1 1" />
+        </body>
+        <body name="M14bolt_4" pos="1.24 -1.55 0.8">
+            <geom type="mesh" mesh="M14bolt" rgba="1 1 1 1" />
+        </body>       -->
+
+
+
+    </worldbody>
+    <actuator>
+    <adhesion name="bolt_mag_1" body="bolt_mag_1" ctrlrange="5 10" gain="5"/>
+    <adhesion name="bolt_mag_2" body="bolt_mag_2" ctrlrange="5 10" gain="5"/>
+    <adhesion name="bolt_mag_3" body="bolt_mag_3" ctrlrange="5 10" gain="5"/>
+    <adhesion name="bolt_mag_4" body="bolt_mag_4" ctrlrange="5 10" gain="5"/>
+
+    </actuator>
+
+
+</mujoco>

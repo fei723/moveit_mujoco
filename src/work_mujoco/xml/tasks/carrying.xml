@@ -1,0 +1,108 @@
+<mujoco model="vccd_write">
+    <compiler meshdir="../../meshes/carrying" angle="radian" eulerseq="zyx"/>
+    <asset>
+        <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.5 0.5 0.5" rgb2="0.5 0.5 0.5"
+                markrgb="0.3 0.3 0.3" width="300" height="300"/>
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="2 2"/>
+        <material name="red_light" rgba="1.0 0.0 0.0 1.0" emission="1.0" />
+        <material name="green_light" rgba="0.0 1.0 0.0 1.0" emission="1.0"/>
+        <material name="yellow_light" rgba="1.0 1.0 0.0 1.0" emission="1.0" />
+        <mesh name="carrying_table" file="carrying_table.stl" scale="1 1 1"/>
+        <mesh name="big_box" file="big_box.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="middle_box" file="middle_box.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="small_box" file="smal_box.stl" scale="0.001 0.001 0.001"/>
+    </asset>
+    <visual>
+        <headlight diffuse="1.2 1.2 1.2" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <global azimuth="90" elevation="-20"/>
+        <quality shadowsize="8192"/>
+    </visual>
+    <worldbody>
+        <light pos="2.058333333 1.275 3" dir="0 0 -1" directional="false"   diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 1.275 3" dir="0 0 -1" directional="false"  diffuse=".2 .2 .2"/>
+        <light pos="2.058333333 -1.275 3" dir="0 0 -1" directional="false"  diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 -1.275 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <light pos="-.225 1.5 3" dir="0 0 -1" directional="false"           diffuse=".2 .2 .2"/>
+        <!--<light pos="3 -2.84 2.5" dir="0 0 -1" diffuse=".5 .5 .5" directional="true"/>-->
+        <geom name="ground" pos="0 0 0" size="2.3 2.5 0.005" type="plane" material="groundplane" condim="1"/>
+        <body name="carrying_table" pos="0 0 0" euler="0 0 0">
+            <geom type="mesh" mesh="carrying_table" contype="0" conaffinity="0" euler="0 0 1.57" pos="0 0 0" rgba="1 1 1 1"/>
+            <geom type="box" pos="0 0 0.737" size="0.3 1.8 0.02" rgba="1 0 1 1" friction="0.1 0.0 0.0"/>
+            <geom type="box" pos="0.345 0 0.737" size="0.045 1.8 0.1" rgba="1 0 1 1" friction="0.1 0.0 0.0"/>
+            <geom type="box" pos="-0.345 0 0.737" size="0.045 1.8 0.1" rgba="1 0 1 1" friction="0.1 0.0 0.0"/>
+        </body>
+
+        <body name="material_box" pos="0.8 0 0" euler="0 00 0">
+        <joint type="free"/>
+            <body name="big_box">
+                <geom type="mesh" mesh="big_box" contype="0" conaffinity="0" euler="1.57 0 1.57" pos="0 0 0" rgba="1 1 0 1"/>
+                <geom type="box" pos="0.005 0.295 0.1385" size="0.006 0.295 0.1385" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.382 0.295 0.1385" size="0.006 0.295 0.1385" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.19 0.295 0.005" size="0.19 0.295 0.006" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <body name="big_oneside" pos="0 0 0">
+                    <geom type="box" pos="0.19 0.005 0.045" size="0.19 0.006 0.044" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.19 0.0025 0.258" size="0.19 0.0027 0.018" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.19 0.01 0.273" size="0.19 0.012 0.0029" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.342 0.009 0.1385" size="0.043 0.01 0.1385" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.043 0.009 0.1385" size="0.043 0.01 0.1385" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.107 0.009 0.257" size="0.025 0.005 0.018" rgba="0 0 1 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.278 0.009 0.257" size="0.025 0.005 0.018" rgba="0 0 1 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.19 0.02 0.18" size="0.19 0.006 0.1" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                </body>
+                <body name="big_otherside" pos="0 0.548 0">
+                    <geom type="box" pos="0.19 0.036 0.045" size="0.19 0.006 0.044" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.19 0.038 0.258" size="0.19 0.0027 0.018" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.19 0.03 0.273" size="0.19 0.012 0.0029" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.342 0.032 0.1385" size="0.043 0.01 0.1385" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.043 0.032 0.1385" size="0.043 0.01 0.1385" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.107 0.031 0.257" size="0.025 0.005 0.018" rgba="0 0 1 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.278 0.031 0.257" size="0.025 0.005 0.018" rgba="0 0 1 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.19 0.02 0.18" size="0.19 0.006 0.1" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                </body>
+            </body>
+            <body name="middle_box" pos="-0.9 -1.5 0.9">
+                <geom type="mesh" mesh="middle_box" contype="0" conaffinity="0" euler="1.57 0 1.57" pos="0 0 0" rgba="1 1 0 1"/>
+                <geom type="box" pos="0.005 0.295 0.073" size="0.006 0.295 0.075" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.382 0.295 0.073" size="0.006 0.295 0.073" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.19 0.295 0.025" size="0.19 0.295 0.027" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <body name="middle_oneside" pos="0 0 0">
+                    <geom type="box" pos="0.194 0.0194 0.1" size="0.19 0.005 0.048" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.057 0.0073 0.1" size="0.057 0.0059 0.048" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.33 0.0073 0.1" size="0.057 0.0059 0.048" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.194 0.002 0.127" size="0.19 0.0032 0.014" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.121 0.008 0.1265" size="0.013 0.006 0.014" rgba="0 1 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.267 0.008 0.1265" size="0.013 0.006 0.014" rgba="0 1 0 1" friction="0.1 0.0 0.0"/>
+                </body>
+                <body name="middle_otherside" pos="0 0.556 0">
+                    <geom type="box" pos="0.194 0.0194 0.1" size="0.19 0.005 0.048" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.057 0.028 0.1" size="0.057 0.0059 0.048" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.33 0.028 0.1" size="0.057 0.0059 0.048" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.194 0.0308 0.127" size="0.19 0.0032 0.014" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.121 0.028 0.1265" size="0.013 0.006 0.014" rgba="0 1 0 1" friction="0.1 0.0 0.0"/>
+                    <geom type="box" pos="0.267 0.028 0.1265" size="0.013 0.006 0.014" rgba="0 1 0 1" friction="0.1 0.0 0.0"/>
+                </body>
+            </body>
+            <body name="small_box" pos="0 1 0.15">
+            <geom type="mesh" mesh="small_box" contype="0" conaffinity="0" euler="1.57 0 3.14" rgba="1 1 0 1"/>
+            <geom type="box" pos="0.0975 0.148 -0.1417" size="0.0975 0.148 0.008" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+            <geom type="box" pos="0.188 0.148 -0.073" size="0.008 0.148 0.07375" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+            <geom type="box" pos="0.007 0.148 -0.073" size="0.008 0.148 0.07375" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+            <body name="small_otherside" pos="0 0 0">
+                <geom type="box" pos="0.0975 0.0251 -0.073" size="0.0975 0.008 0.07375" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.0975 0.0014 -0.0185" size="0.0975 0.0017 0.0195" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.02 0.01 -0.073" size="0.02 0.01 0.07375" rgba="0 1 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.175 0.01 -0.073" size="0.02 0.01 0.07375" rgba="0 1 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.0975 0.013 -0.01143" size="0.0975 0.01 0.0115" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+            </body>
+            <body name="small_oneside" pos="0 0.2477 0">
+                <geom type="box" pos="0.0975 0.0251 -0.073" size="0.0975 0.008 0.07375" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.0975 0.0485 -0.0185" size="0.0975 0.0017 0.0195" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.02 0.0402 -0.073" size="0.02 0.01 0.07375" rgba="0 1 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.175 0.0402 -0.073" size="0.02 0.01 0.07375" rgba="0 1 0 1" friction="0.1 0.0 0.0"/>
+                <geom type="box" pos="0.0975 0.04 -0.01143" size="0.0975 0.01 0.0115" rgba="1 0 0 1" friction="0.1 0.0 0.0"/>
+            </body>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>

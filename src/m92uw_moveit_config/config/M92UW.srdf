@@ -101,6 +101,8 @@
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_eef" parent_link="l_end_effector_frame" group="left_hand" parent_group="left_arm"/>
     <end_effector name="right_eef" parent_link="r_end_effector_frame" group="right_hand" parent_group="right_arm"/>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtural_joint" type="planar" parent_frame="word" child_link="base_footprint"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="ankle_p_link" link2="base_link" reason="Adjacent"/>
     <disable_collisions link1="ankle_p_link" link2="head1_y_link" reason="Never"/>

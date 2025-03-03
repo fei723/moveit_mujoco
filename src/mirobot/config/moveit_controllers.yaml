@@ -1,4 +1,5 @@
 # MoveIt uses this configuration for controller management
+
 trajectory_execution:
   allowed_execution_duration_scaling: 1.2
   allowed_goal_duration_margin: 0.5
@@ -23,9 +24,9 @@ moveit_simple_controller_manager:
     action_ns: follow_joint_trajectory
     default: true
   hand_controller:
-    type: GripperCommand
+    type: FollowJointTrajectory
     joints:
       - panda_finger_joint1
       - panda_finger_joint2
-    action_ns: gripper_cmd
+    action_ns: follow_joint_trajectory
     default: true

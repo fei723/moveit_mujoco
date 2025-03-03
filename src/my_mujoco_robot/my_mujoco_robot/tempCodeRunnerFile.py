@@ -1,1 +1,0 @@
-            print(asset.data.qpos[4])

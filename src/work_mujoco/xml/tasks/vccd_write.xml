@@ -1,0 +1,156 @@
+<mujoco model="vccd_write">
+    <option timestep="0.0001">
+    
+    </option> 
+
+    <compiler meshdir="../../meshes/VCCD" angle="radian" eulerseq="zyx"/>
+    <asset>
+        <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.5 0.5 0.5" rgb2="0.5 0.5 0.5"
+                markrgb="0.3 0.3 0.3" width="300" height="300"/>
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="2 2"/>
+        <material name="red_light" rgba="1.0 0.0 0.0 1.0" emission="1.0" />
+        <material name="green_light" rgba="0.0 1.0 0.0 1.0" emission="1.0"/>
+        <material name="yellow_light" rgba="1.0 1.0 0.0 1.0" emission="1.0" />
+        <mesh name="VCCD" file="vccd.stl" scale="1 1 1"/>
+        <mesh name="vccd_board" file="vccd_test.stl" scale="1 1 1"/>
+        <mesh name="material_box" file="material_box.STL" scale="1 1 1"/>
+
+    </asset>
+    <visual>
+        <headlight diffuse="1.2 1.2 1.2" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <global azimuth="90" elevation="-20"/>
+        <quality shadowsize="8192"/>
+    </visual>
+    <worldbody>
+        <light pos="2.058333333 1.275 3" dir="0 0 -1" directional="false"   diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 1.275 3" dir="0 0 -1" directional="false"  diffuse=".2 .2 .2"/>
+        <light pos="2.058333333 -1.275 3" dir="0 0 -1" directional="false"  diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 -1.275 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <light pos="-.225 1.5 3" dir="0 0 -1" directional="false"           diffuse=".2 .2 .2"/>
+        <!--<light pos="3 -2.84 2.5" dir="0 0 -1" diffuse=".5 .5 .5" directional="true"/>-->
+        <geom name="ground" pos="0 0 0" size="1.98 1.79 0.005" type="plane" material="groundplane" condim="1"/>
+
+        <body name="VCCD" pos="-0.1 -0.52 0.975" euler="-3.14 0 1.57">
+            <geom type="mesh" mesh="VCCD"  contype="0" conaffinity="0" rgba="0.2 0.2 0.2 0.7"/>
+            <geom type="box" pos="0.02544 0 0.015" size="0.005 0.08 0.088" rgba="1 0 1 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="0.038 0.001 0.015" size="0.008 0.08 0.15" rgba="1 0 1 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="-0.042 0.001 0.015" size="0.008 0.08 0.15" rgba="0 0 1 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="-0.03075 0 0" size="0.005 0.08 0.1" rgba="1 0 1 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="-0.02 0.0024 0.015" size="0.007 0.025 0.08" rgba="1 0 0 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="0.013 0.02717 0.12" size="0.01 0.02 0.01" rgba="1 1 0 1"/>
+            <geom type="box" pos="0.02544 0.03 0.105" size="0.005 0.05 0.005" rgba="1 0 0 1"/>
+            <geom type="box" pos="0.02544 0.03 0.1315" size="0.005 0.05 0.005" rgba="1 0 0 1"/>
+            <geom type="box" pos="0.008 0.0082 -0.09" size="0.005 0.004 0.01" rgba="1 1 0 1"/>
+            <geom type="box" pos="-0.00223 0.03 -0.083" size="0.005 0.03 0.01" rgba="1 0 1 1"/>
+            <geom type="box" pos="0.02544 0.03 -0.09812" size="0.005 0.048 0.003" rgba="1 1 0 1"/>
+            <geom type="box" pos="0.02544 0.03 -0.07614" size="0.005 0.048 0.003" rgba="1 1 0 1"/>
+            <geom type="box" pos="0 -0.005 0" size="0.05 0.002 0.2" rgba="1 0 1 1"/>
+            <geom type="box" pos="-0.0095 0.0024 -0.096" size="0.012 0.08 0.025" rgba="1 0 0 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="-0.0095 0.0024 0.127" size="0.012 0.08 0.025" rgba="1 0 0 1" friction="0.5 0.0 0.0"/>
+            <!-- <geom type="box" pos="-0.022 0.0024 0.1185" size="0.002 0.08 0.025" rgba="1 0 1 1" friction="0.5 0.0 0.0"/> -->
+            <!-- <geom type="box" pos="-0.022 0.0024 -0.088" size="0.002 0.08 0.025" rgba="1 0 1 1" friction="0.5 0.0 0.0"/> -->
+            <geom type="box" pos="0 0.0024 0.1738" size="0.045 0.08 0.008" rgba="1 1 0 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="0 0.0024 -0.135" size="0.045 0.08 0.008" rgba="1 1 0 1" friction="0.5 0.0 0.0"/>
+        </body>
+
+        <body name="vccd_board" pos="0 -0.1 1.042" euler="0 0 3.14">
+            <geom type="mesh" mesh="vccd_board" contype="0" conaffinity="0" rgba="0.75 0.75 0.75 1"/>
+            <geom type="cylinder" pos="-0.0164 -0.008 -0.01" size="0.00651 0.005" rgba="1 0 1 0" euler="0 0 1.57"/>
+            <geom type="cylinder" pos="-0.0164 -0.008 -0.080" size="0.00651 0.005" rgba="1 0 1 0" euler="0 0 1.57"/> 
+            <geom type="box" pos="-0.0185 0.00325 -0.01" size="0.0146 0.0064 0.01642" rgba="1 1 0 0"/>
+            <geom type="box" pos="-0.0185 0.00325 -0.08" size="0.0146 0.0064 0.01642" rgba="1 1 0 0"/>
+            <geom type="cylinder" pos="0.1895 -0.008 -0.045" size="0.00651 0.005" rgba="1 0 1 0" euler="0 0 1.57"/>
+            <geom type="box" pos="0.191 0.00325 -0.045" size="0.0146 0.0064 0.01642" rgba="1 1 0 0"/>
+            <geom type="box" pos="0.08614 0.00975 0" size="0.085 0.01625 0.0223" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="0.08614 0.0161 -0.0583" size="0.085 0.0226 0.036" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="0.08614 0.0045 -0.1018" size="0.085 0.011 0.0075" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            
+        </body>
+
+        <body name="vccd_board_test" pos="-0.114 -0.5915 1.19" euler="1.57 0 3.14">
+            <joint type="free"/>
+            <geom type="mesh" mesh="vccd_board" contype="0" conaffinity="0" rgba="0.75 0.75 0.75 0"/>
+            <geom type="cylinder" pos="-0.0164 -0.008 -0.01" size="0.00651 0.005" rgba="1 0 1 1" euler="0 0 1.57"/>
+            <geom type="cylinder" pos="-0.0164 -0.008 -0.080" size="0.00651 0.005" rgba="1 0 1 1" euler="0 0 1.57"/> 
+            <geom type="box" pos="-0.0185 0.00325 -0.01" size="0.0146 0.0064 0.01642" rgba="1 1 0 1"/>
+            <geom type="box" pos="-0.0185 0.00325 -0.08" size="0.0146 0.0064 0.01642" rgba="1 1 0 1"/>
+            <geom type="cylinder" pos="0.1895 -0.008 -0.045" size="0.00651 0.005" rgba="1 0 1 1" euler="0 0 1.57"/>
+            <geom type="box" pos="0.191 0.00325 -0.045" size="0.0146 0.0064 0.01642" rgba="1 1 0 1"/>
+            <geom type="box" pos="0.08614 0.00975 0" size="0.085 0.01625 0.0223" rgba="1 0 1 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="0.08614 0.0161 -0.0583" size="0.085 0.0226 0.036" rgba="1 0 1 1" friction="0.5 0.0 0.0"/>
+            <geom type="box" pos="0.08614 0.0045 -0.1018" size="0.085 0.011 0.0075" rgba="1 0 1 1" friction="0.5 0.0 0.0"/>
+            
+        </body>
+
+
+        <body name="material" pos="0 0.01 0.975">
+            <geom type="mesh" mesh="material_box" contype="0" conaffinity="0" euler="0 0 1.57" rgba="0.9 0.9 0.95 1"/>
+            <geom type="box" pos="0 0 0" size="0.3 0.2 0.01" rgba="1 0 1 0"/>
+            <geom type="box" pos="0 0.192 0.14" size="0.3 0.007 0.14" rgba="1 0 1 0"/>
+            <geom type="box" pos="0 -0.192 0.14" size="0.3 0.007 0.14" rgba="1 0 1 0"/>
+            <geom type="box" pos="0.286 0 0.14" size="0.01 0.2 0.14" rgba="1 0 1 0"/>
+            <geom type="box" pos="-0.286 0 0.14" size="0.01 0.2 0.14" rgba="1 0 1 0"/>
+        </body>
+
+        <body name="table" pos="0 -0.3 0" euler="0 0 0">
+            <geom type="box" pos="0 0 0.955" size="0.31 0.6 0.01" rgba="1 1 1 1"/>
+            <geom type="box" pos="0.3 0.59 0.4725" size="0.01 0.01 0.4725" rgba="1 1 1 1"/>
+            <geom type="box" pos="-0.3 0.59 0.4725" size="0.01 0.01 0.4725" rgba="1 1 1 1"/>
+            <geom type="box" pos="0.3 -0.59 0.4725" size="0.01 0.01 0.4725" rgba="1 1 1 1"/>
+            <geom type="box" pos="-0.3 -0.59 0.4725" size="0.01 0.01 0.4725" rgba="1 1 1 1"/>
+        </body>
+
+        <body name="rack" pos="0.8 1.2 0.05">
+            <!-- 四根立柱 -->
+            <geom type="cylinder" size="0.05 0.825" pos="-1.1 -0.475 0.825" rgba="0.8 0.8 0.8 1"/>
+            <geom type="cylinder" size="0.05 0.825" pos="-1.1 0.475 0.825" rgba="0.8 0.8 0.8 1"/>
+            <geom type="cylinder" size="0.05 0.825" pos="1.1 -0.475 0.825" rgba="0.8 0.8 0.8 1"/>
+            <geom type="cylinder" size="0.05 0.825" pos="1.1 0.475 0.825" rgba="0.8 0.8 0.8 1"/>
+
+            <!-- 三层横梁 -->
+            <geom type="box" size="1.1 0.05 0.025" pos="0 -0.475 1.55" euler="0 0.05 0" rgba="0.8 0.8 0.8 1"/>
+            <geom type="box" size="1.1 0.05 0.025" pos="0 0.475 1.55" euler="0 0.05 0" rgba="0.8 0.8 0.8 1"/>
+            <geom type="box" size="1.1 0.05 0.025" pos="0 -0.475 0.825" euler="0 -0.05 0" rgba="0.8 0.8 0.8 1"/>
+            <geom type="box" size="1.1 0.05 0.025" pos="0 0.475 0.825" euler="0 -0.05 0" rgba="0.8 0.8 0.8 1"/>
+            <geom type="box" size="1.1 0.05 0.025" pos="0 -0.475 0.1" euler="0 0.05 0" rgba="0.8 0.8 0.8 1"/>
+            <geom type="box" size="1.1 0.05 0.025" pos="0 0.475 0.1" euler="0 0.05 0" rgba="0.8 0.8 0.8 1"/>
+
+            <!-- 挡板 -->
+            <geom type="cylinder" size="0.02 0.475" pos="1.1 0 0.15" euler="0 0 1.57" rgba="0.5 0.5 0.5 1"/>
+            <!-- 滚珠轨道 -->
+            <body name="rollers" pos="0 0 0">
+                <!-- 第一层 -->
+                <!-- <geom type="cylinder" size="0.02 0.475" pos="0 0 1.55" euler="0 0 1.57" rgba="0.5 0.5 0.5 1"/>
+                <geom type="cylinder" size="0.02 0.475" pos="-0.05 0 1.555" euler="0 0 1.57" rgba="0.5 0.5 0.5 1"/> -->
+                <geom type="box" size="1.1 0.475 0.025" pos="0 0 0.1" euler="0 0.05 0" rgba="0.8 0.8 0.8 1" friction="0.02 0.0 0.0"/>
+
+                <!-- 第二层 -->
+                <!-- <geom type="cylinder" size="0.02 0.475" pos="0 0 0.825" euler="0 0 1.57" rgba="0.5 0.5 0.5 1"/>
+                <geom type="cylinder" size="0.02 0.475" pos="-0.05 0 0.83" euler="0 0 1.57" rgba="0.5 0.5 0.5 1"/> -->
+                <geom type="box" size="1.1 0.475 0.025" pos="0 0 0.825" euler="0 -0.05 0" rgba="0.8 0.8 0.8 1" friction="0.02 0.0 0.0"/>
+
+                <!-- 第三层 -->
+                <!-- <geom type="cylinder" size="0.02 0.475" pos="0 0 0.1" euler="0 0 1.57" rgba="0.5 0.5 0.5 1"/>
+                <geom type="cylinder" size="0.02 0.475" pos="-0.05 0 0.105" euler="0 0 1.57" rgba="0.5 0.5 0.5 1"/> -->
+                <geom type="box" size="1.1 0.475 0.025" pos="0 0 1.55" euler="0 0.05 0" rgba="0.8 0.8 0.8 1" friction="0.02 0.0 0.0"/>
+            </body>
+            <geom type="cylinder" size="0.05 0.05" pos="-1.1 -0.475 -0.04" euler="0 0 1.57" rgba="0.2 0.2 0.2 1"/>
+            <geom type="cylinder" size="0.05 0.05" pos="-1.1 0.475 -0.04" euler="0 0 1.57" rgba="0.2 0.2 0.2 1"/>
+            <geom type="cylinder" size="0.05 0.05" pos="1.1 -0.475 -0.04" euler="0 0 1.57" rgba="0.2 0.2 0.2 1"/>
+            <geom type="cylinder" size="0.05 0.05" pos="1.1 0.475 -0.04" euler="0 0 1.57" rgba="0.2 0.2 0.2 1"/>
+        </body>
+
+        <body name="material_rack" pos="0.2 1.1 0.35">
+            <joint type="free"/>
+            <geom type="mesh" mesh="material_box" euler="0 0 1.57" rgba="0.9 0.9 0.95 1" friction="0.02 0.0 0.0"/>
+        </body>
+
+        
+
+    </worldbody>
+
+
+
+
+</mujoco>

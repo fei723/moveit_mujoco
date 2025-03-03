@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   srdf:
     relative_path: config/M92UW.srdf
   package_settings:
-    author_name: Neal.Li
-    author_email: lixiangyuan@xiaomi.com
-    generated_timestamp: 1739414365
+    author_name: "shifei "
+    author_email: shifei3@xiaomi.com
+    generated_timestamp: 1740982149

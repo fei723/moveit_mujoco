@@ -1,5 +1,10 @@
 # MoveIt uses this configuration for controller management
 
+trajectory_execution:
+  allowed_execution_duration_scaling: 1.2
+  allowed_goal_duration_margin: 0.5
+  allowed_start_tolerance: 0.01
+  execution_duration_monitoring: true
 moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
 
 moveit_simple_controller_manager:
@@ -14,8 +19,6 @@ moveit_simple_controller_manager:
 
   trunk_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - ankle_p_joint
       - knee_p_joint
@@ -25,8 +28,6 @@ moveit_simple_controller_manager:
     default: true
   head_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - head1_y_joint
       - head2_p_joint
@@ -34,8 +35,6 @@ moveit_simple_controller_manager:
     default: true
   left_arm_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - l_arm1_shoulder_p_joint
       - l_arm2_shoulder_r_joint
@@ -48,8 +47,6 @@ moveit_simple_controller_manager:
     default: true
   right_arm_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - r_arm1_shoulder_p_joint
       - r_arm2_shoulder_r_joint
@@ -62,8 +59,6 @@ moveit_simple_controller_manager:
     default: true
   body_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - ankle_p_joint
       - knee_p_joint
@@ -89,8 +84,6 @@ moveit_simple_controller_manager:
     default: true
   left_hand_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - l_index_mcp_joint
       - l_middle_mcp_joint
@@ -102,8 +95,6 @@ moveit_simple_controller_manager:
     default: true
   right_hand_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - r_index_mcp_joint
       - r_middle_mcp_joint

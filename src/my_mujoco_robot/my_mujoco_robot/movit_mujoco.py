@@ -84,7 +84,7 @@ def main():
             rclpy.spin_once(asset)
             # 进行一步仿真
             mujoco.mj_step(asset.model, asset.data)
-
+            # asset.run_simulation()
 
             with viewer.lock():
                 viewer.opt.flags[mujoco.mjtVisFlag.mjVIS_CONTACTPOINT] = int(asset.data.time % 2)

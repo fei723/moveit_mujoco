@@ -1,0 +1,275 @@
+<mujoco model="vccd_write">
+    <include file="../robots/M92UW/M92UW.mujoco.xml"/>
+
+    <compiler meshdir="../../meshes" angle="radian" eulerseq="zyx"/>
+
+    <statistic center="0 0 1" extent="1.8"/>
+
+    <option gravity="0 0 -9.81" timestep="0.001"/>
+
+    <default>
+        <equality solref="0.004 1" solimp="0.95 0.99 0.001 0.1 6"/>
+        <geom condim="3" conaffinity="1" contype="1" solref="0.004 1" solimp="0.85 0.9 0.001 0.1 6"/>
+        <joint limited="true" solimplimit="0.98 0.99 0.001 0.1 6" solreflimit="0.004 1" stiffness="0.1" armature="0.1" damping="0.1"/>
+        <motor ctrllimited="true" ctrlrange="-500.0 500.0"/>
+    </default>
+
+    <visual>
+        <headlight diffuse="1.2 1.2 1.2" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <global azimuth="90" elevation="-20"/>
+        <quality shadowsize="8192"/>
+    </visual>
+
+    <extension>
+        <plugin plugin="mujoco_ros2_control::MujocoRos2ControlPlugin"/>
+    </extension>
+
+    <asset>
+        <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.5 0.5 0.5" rgb2="0.5 0.5 0.5" markrgb="0.3 0.3 0.3" width="300" height="300"/>
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="2 2"/>
+        <material name="red_light" rgba="1.0 0.0 0.0 1.0" emission="1.0"/>
+        <material name="green_light" rgba="0.0 1.0 0.0 1.0" emission="1.0"/>
+        <material name="yellow_light" rgba="1.0 1.0 0.0 1.0" emission="1.0"/>
+        <mesh name="wing_board" file="wing/yiziban.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="wing_board_mirror" file="wing/yiziban_mirror.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="rack" file="wing/jiazi.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="rack_mirror" file="wing/zhijia_mirror.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="cy" file="wing/cy.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="xiaode" file="wing/xiaode.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="xiaode_mirror" file="wing/xiaode_mirror.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="cy_bottom" file="wing/cy_bottom.STL" scale="0.001 0.001 0.001"/>
+    </asset>
+
+    <worldbody>
+        <light pos="2.058333333 1.275 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 1.275 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <light pos="2.058333333 -1.275 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 -1.275 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <light pos="-.225 1.5 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <!--<light pos="3 -2.84 2.5" dir="0 0 -1" diffuse=".5 .5 .5" directional="true"/>-->
+        <geom name="ground" pos="0 0 0" size="1.98 1.79 0.005" type="plane" material="groundplane" condim="1"/>
+
+        <body name="wing_board" pos="0.25 -1.1 1" euler="0 0 0">
+            <joint name="wing_board_joint" type="free"/>
+            <geom name="wing_board_0" type="mesh" mesh="wing_board" rgba="0.75 0.75 0.75 1"/>
+            <!-- <geom name="wing_board_1" type="box" pos="-0.02 -0.055 -0.05015" size="0.022 0.0059 0.0017" rgba="1 0 0 1"/> -->
+        </body>
+
+        <body name="wing_board_test" pos="0.397 -0.035 1" euler="1.63 0 0.05">
+            <joint name="wing_board_test_joint" type="free"/>
+            <geom name="wing_board_test_00" type="mesh" mesh="wing_board" contype="0" conaffinity="0" rgba="0.75 0.75 0 1"/>
+            <geom name="wing_board_test_01" type="box" pos="-0.02 -0.055 -0.0347" size="0.022 0.0059 0.017" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_02" type="box" pos="-0.16 0.04 -0.0245" size="0.022 0.0059 0.01" euler="0 -0.07 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_03" type="box" pos="0.09 -0.0555 -0.009" size="0.022 0.005 0.017" euler="0 -0.32 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_04" type="box" pos="0.03 -0.052 -0.033" size="0.022 0.005 0.009" euler="0 -0.22 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_05" type="box" pos="0.105 -0.013 -0.041" size="0.022 0.006 0.01" euler="-0.05 -0.32 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_06" type="box" pos="-0.17 0.065 0.013" size="0.022 0.025 0.0017" euler="0 -0.05 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_07" type="cylinder" pos="-0.033 0.065 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_08" type="cylinder" pos="-0.039 0.05758 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_09" type="cylinder" pos="-0.028 0.064 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_10" type="cylinder" pos="-0.037 0.0525 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_11" type="cylinder" pos="-0.037 0.063 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_12" type="cylinder" pos="-0.038 0.0614 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_13" type="cylinder" pos="-0.0388 0.05958 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_14" type="cylinder" pos="-0.0388 0.0555 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_15" type="cylinder" pos="-0.038 0.0537 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_16" type="cylinder" pos="-0.0355 0.0515 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_17" type="cylinder" pos="-0.0338 0.0508 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_18" type="cylinder" pos="-0.0317 0.0503 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_19" type="cylinder" pos="-0.0297 0.05055 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_20" type="cylinder" pos="-0.0278 0.0512 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_21" type="cylinder" pos="-0.0262 0.0526 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_22" type="cylinder" pos="-0.0252 0.05385 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_23" type="cylinder" pos="-0.0248 0.0558 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_24" type="cylinder" pos="-0.0243 0.057 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_25" type="cylinder" pos="-0.0245 0.0585 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_26" type="cylinder" pos="-0.0247 0.06 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_27" type="cylinder" pos="-0.0255 0.0615 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_28" type="cylinder" pos="-0.0267 0.0628 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_29" type="cylinder" pos="-0.0298 0.0648 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_30" type="cylinder" pos="-0.031 0.065 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="wing_board_test_31" type="cylinder" pos="-0.035 0.0642 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+        </body>
+
+        <body name="wing_board_test_mirror" pos="0.394 0.435 1" euler="1.48 0 0.01">
+            <joint name="wing_board_test_mirror_joint" type="free"/>
+            <geom name="wing_board_test_mirror_0" type="mesh" mesh="wing_board_mirror" contype="0" conaffinity="0" rgba="0.75 0.75 0 1"/>
+            <geom name="wing_board_test_mirror_1" type="box" pos="0.02 -0.0535 -0.034" size="0.022 0.0059 0.017" euler="0 0.07 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_mirror_2" type="box" pos="0.16 0.042 -0.0245" size="0.022 0.0059 0.01" euler="0 0.07 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_mirror_3" type="box" pos="-0.08 -0.055 -0.008" size="0.022 0.005 0.017" euler="0 0.32 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_mirror_4" type="box" pos="-0.03 -0.05 -0.033" size="0.022 0.005 0.009" euler="0 0.22 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_mirror_5" type="box" pos="-0.105 -0.013 -0.041" size="0.022 0.006 0.01" euler="0.05 0.32 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_board_test_mirror_6" type="box" pos="0.16 0.065 0.013" size="0.022 0.025 0.0017" euler="0 0.05 0" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            <body name="hole" pos="0.0636 0 0.002">
+                <geom name="hole_00" type="cylinder" pos="-0.033 0.065 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_01" type="cylinder" pos="-0.039 0.05758 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_02" type="cylinder" pos="-0.028 0.064 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_03" type="cylinder" pos="-0.037 0.0525 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_04" type="cylinder" pos="-0.037 0.063 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_05" type="cylinder" pos="-0.038 0.0614 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_06" type="cylinder" pos="-0.0388 0.05958 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_07" type="cylinder" pos="-0.0388 0.0555 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_08" type="cylinder" pos="-0.038 0.0537 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_09" type="cylinder" pos="-0.0355 0.0515 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_10" type="cylinder" pos="-0.0338 0.0508 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_11" type="cylinder" pos="-0.0317 0.0503 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_12" type="cylinder" pos="-0.0297 0.05055 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_13" type="cylinder" pos="-0.0278 0.0512 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_14" type="cylinder" pos="-0.0262 0.0526 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_15" type="cylinder" pos="-0.0252 0.05385 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_16" type="cylinder" pos="-0.0248 0.0558 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_17" type="cylinder" pos="-0.0243 0.057 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_18" type="cylinder" pos="-0.0245 0.0585 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_19" type="cylinder" pos="-0.0247 0.06 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_20" type="cylinder" pos="-0.0255 0.0615 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_21" type="cylinder" pos="-0.0267 0.0628 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_22" type="cylinder" pos="-0.0298 0.0648 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_23" type="cylinder" pos="-0.031 0.065 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_24" type="cylinder" pos="-0.035 0.0642 0.02" size="0.001 0.002" rgba="1 0 1 0"/>
+            </body>
+        </body>
+
+        <body name="wing_rack" pos="0 0 0" euler="1.57 0 1.57">
+            <geom name="wing_rack_00" type="mesh" mesh="rack" contype="0" conaffinity="0" pos="-0.5 0 0" rgba="1 1 1 1"/>
+            <geom name="wing_rack_01" type="mesh" mesh="rack" contype="0" conaffinity="0" pos="0 0 0" rgba="1 1 1 1"/>
+            <geom name="wing_rack_02" type="mesh" mesh="rack" contype="0" conaffinity="0" pos="1 0 0" rgba="1 1 1 1"/>
+            <geom name="wing_rack_03" type="box" pos="-0.057 0.925 0.46" size="0.003 0.02 0.0022" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_04" type="box" pos="-0.057 0.925 0.442" size="0.003 0.02 0.0022" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_05" type="box" pos="-0.059 0.907 0.45" size="0.01 0.002 0.018" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_06" type="box" pos="-0.19 0.93 0.36" size="0.01 0.002 0.018" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_07" type="box" pos="-0.185 0.95 0.338" size="0.003 0.02 0.0022" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_08" type="box" pos="-0.185 0.94 0.375" size="0.003 0.01 0.0022" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_09" type="box" pos="0.057 0.9275 0.442" size="0.022 0.008 0.001" euler="0.21 0 1.57" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_10" type="box" pos="-0.02 0.913 0.442" size="0.022 0.008 0.001" euler="0.19 0 1.57" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_11" type="box" pos="0.057 0.898 0.4005" size="0.022 0.008 0.001" euler="0.21 0 1.57" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_12" type="box" pos="0.064 0.943 0.452" size="0.003 0.025 0.0022" euler="0.32 0 0.02" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_13" type="box" pos="0.064 0.935 0.433" size="0.003 0.01 0.0022" euler="0.32 0 0.02" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_14" type="box" pos="0.064 0.917 0.41" size="0.003 0.025 0.0022" euler="0.32 0 0.02" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_15" type="box" pos="0.064 0.917 0.391" size="0.003 0.025 0.0022" euler="0.32 0 0.02" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_16" type="box" pos="-0.19 0.975 0.323" size="0.01 0.002 0.018" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_17" type="mesh" mesh="cy" pos="-0.077 0.977 0.346" euler="0 0 -1.57" rgba="0 0 1 0"/>
+            <geom name="wing_rack_18" type="box" pos="-0.014 0.684 0.555" euler="0.06 0 0" size="0.012 0.001 0.05" rgba="1 1 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_19" type="box" pos="0 0.684 0.555" euler="1.57 0 0" size="0.01 0.001 0.008" rgba="1 1 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_20" type="box" pos="-0.029 0.693 0.555" euler="1.6 0 0" size="0.01 0.001 0.008" rgba="1 1 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_21" type="box" pos="-0.005 0.6822 0.405" euler="0 0 0.025" size="0.012 0.001 0.03" rgba="1 1 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="wing_rack_22" type="mesh" mesh="cy_bottom" pos="-0.01 0.682 0.413" euler="0 0 -1.57" rgba="0 0 1 0"/>
+            <geom name="wing_rack_23" type="mesh" mesh="rack_mirror" contype="0" conaffinity="0" pos="0.4 0 0" rgba="1 1 1 1"/>
+            <body name="rack_collision_mirror" pos="0.516 0 0">
+                <geom name="rack_collision_mirror_00" type="box" pos="-0.057 0.925 0.46" size="0.003 0.02 0.0022" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_01" type="box" pos="-0.057 0.925 0.442" size="0.003 0.02 0.0022" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_02" type="box" pos="-0.059 0.907 0.45" size="0.01 0.002 0.018" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_03" type="box" pos="0.07 0.93 0.36" size="0.01 0.002 0.018" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_04" type="box" pos="0.07 0.95 0.338" size="0.003 0.02 0.0022" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_05" type="box" pos="0.07 0.94 0.375" size="0.003 0.01 0.0022" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_06" type="box" pos="-0.175 0.9275 0.442" size="0.022 0.008 0.001" euler="-0.21 0 -1.57" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_07" type="box" pos="-0.1 0.913 0.442" size="0.022 0.008 0.001" euler="-0.19 0 -1.57" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_08" type="box" pos="-0.185 0.899 0.4005" size="0.022 0.008 0.001" euler="-0.21 0 -1.57" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_09" type="box" pos="-0.175 0.943 0.452" size="0.003 0.025 0.0022" euler="-0.32 0 0" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_10" type="box" pos="-0.175 0.935 0.433" size="0.003 0.01 0.0022" euler="-0.32 0 0.02" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_11" type="box" pos="-0.185 0.917 0.41" size="0.003 0.025 0.0022" euler="-0.32 0 -0.02" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_12" type="box" pos="-0.185 0.917 0.391" size="0.003 0.025 0.0022" euler="-0.32 0 -0.02" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_13" type="box" pos="0.07 0.975 0.323" size="0.01 0.002 0.018" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_14" type="mesh" mesh="cy" pos="-0.052 0.977 0.346" euler="0 0 -1.57" rgba="0 0 1 0"/>
+                <geom name="rack_collision_mirror_15" type="box" pos="-0.1 0.683 0.555" euler="-0.06 0 0" size="0.012 0.001 0.05" rgba="1 1 0 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_16" type="box" pos="-0.084 0.69 0.555" euler="1.5 0 0" size="0.01 0.001 0.008" rgba="1 1 0 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_17" type="box" pos="-0.115 0.693 0.555" euler="1.6 0 0" size="0.01 0.001 0.008" rgba="1 1 0 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_18" type="box" pos="-0.112 0.6822 0.405" euler="0 0 0.025" size="0.012 0.001 0.03" rgba="1 1 0 0" friction="0.5 0.0 0.0"/>
+                <geom name="rack_collision_mirror_19" type="mesh" mesh="cy_bottom" pos="-0.116 0.682 0.413" euler="0 0 -1.57" rgba="0 0 1 0"/>
+            </body>
+        </body>
+
+        <body name="xiade" pos="0.5315 -0.02 0.75" euler="1.57 -0.13 1.57">
+            <joint name="xiade_joint" type="free"/>
+            <geom name="xiade_00" type="mesh" mesh="xiaode" pos="0 0 0" contype="0" conaffinity="0" euler="0 0 0" rgba="0 0 1 1"/>
+            <geom name="xiade_01" type="box" pos="0.005 -0.023 0.02" size="0.012 0.01 0.05" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <geom name="xiade_02" type="cylinder" pos="0.0115 -0.023 -0.1198" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_03" type="cylinder" pos="0.01 -0.023 -0.1207" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_04" type="cylinder" pos="0.0088 -0.023 -0.1219" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_05" type="cylinder" pos="0.0078 -0.023 -0.1235" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_06" type="cylinder" pos="0.0074 -0.023 -0.1255" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_07" type="cylinder" pos="0.0078 -0.023 -0.1275" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_08" type="cylinder" pos="0.0088 -0.023 -0.1294" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_09" type="cylinder" pos="0.0102 -0.023 -0.131" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_10" type="cylinder" pos="0.012 -0.023 -0.1318" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_11" type="cylinder" pos="0.014 -0.023 -0.1321" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_12" type="cylinder" pos="0.016 -0.023 -0.1317" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_13" type="cylinder" pos="0.0177 -0.023 -0.1308" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_14" type="cylinder" pos="0.0191 -0.023 -0.1295" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_15" type="cylinder" pos="0.0198 -0.023 -0.1279" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_16" type="cylinder" pos="0.0202 -0.023 -0.126" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_17" type="cylinder" pos="0.0198 -0.023 -0.124" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_18" type="cylinder" pos="0.0188 -0.023 -0.122" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_19" type="cylinder" pos="0.0173 -0.023 -0.1206" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_20" type="cylinder" pos="0.0159 -0.023 -0.1198" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_21" type="cylinder" pos="0.0145 -0.023 -0.1195" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_22" type="cylinder" pos="0.013 -0.023 -0.1193" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+            <geom name="xiade_23" type="box" pos="-0.0088 -0.013 0.02" size="0.0017 0.02 0.05" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+        </body>
+
+        <body name="xiade_mirror" pos="0.5315 0.42 0.75" euler="1.57 0.1 1.57">
+            <joint name="xiade_mirror_joint" type="free"/>
+            <geom name="xiade_mirror_0" type="mesh" mesh="xiaode_mirror" pos="0 0 0" contype="0" conaffinity="0" euler="0 0 0" rgba="0 0 1 1"/>
+            <geom name="xiade_mirror_1" type="box" pos="-0.005 -0.0215 0.02" euler="0.05 0.05 0" size="0.0115 0.01 0.05" rgba="1 0 1 0" friction="0.5 0.0 0.0"/>
+            <body name="hole_xiaode" pos="-0.0275 -0.002 0">
+                <geom name="hole_xiaode_00" type="cylinder" pos="0.0115 -0.023 -0.1198" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_01" type="cylinder" pos="0.01 -0.023 -0.1207" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_02" type="cylinder" pos="0.0088 -0.023 -0.1219" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_03" type="cylinder" pos="0.0078 -0.023 -0.1235" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_04" type="cylinder" pos="0.0074 -0.023 -0.1255" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_05" type="cylinder" pos="0.0078 -0.023 -0.1275" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_06" type="cylinder" pos="0.0088 -0.023 -0.1294" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_07" type="cylinder" pos="0.0102 -0.023 -0.131" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_08" type="cylinder" pos="0.012 -0.023 -0.1318" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_09" type="cylinder" pos="0.014 -0.023 -0.1321" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_10" type="cylinder" pos="0.016 -0.023 -0.1317" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_11" type="cylinder" pos="0.0177 -0.023 -0.1308" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_12" type="cylinder" pos="0.0191 -0.023 -0.1295" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_13" type="cylinder" pos="0.0198 -0.023 -0.1279" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_14" type="cylinder" pos="0.0202 -0.023 -0.126" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_15" type="cylinder" pos="0.0198 -0.023 -0.124" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_16" type="cylinder" pos="0.0188 -0.023 -0.122" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_17" type="cylinder" pos="0.0173 -0.023 -0.1206" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_18" type="cylinder" pos="0.0159 -0.023 -0.1198" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_19" type="cylinder" pos="0.0145 -0.023 -0.1195" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_20" type="cylinder" pos="0.013 -0.023 -0.1193" euler="0 0 1.57" size="0.001 0.002" rgba="1 0 1 0"/>
+                <geom name="hole_xiaode_21" type="box" pos="0.037 -0.008 0.02" euler="0.05 0 0" size="0.0017 0.02 0.05" rgba="1 0 0 0" friction="0.5 0.0 0.0"/>
+            </body>
+        </body>
+
+        <body name="fence" pos="0.7 0 0">
+            <geom name="fence_00" type="box" pos="0 -0.63 0.15" size="0.01 0.01 0.15" rgba="1 1 1 1"/>
+            <geom name="fence_01" type="box" pos="0 -0.47 0.18" size="0.01 0.15 0.12" rgba="0.75 0.75 0.75 0.5"/>
+            <geom name="fence_02" type="box" pos="0 -0.315 0.15" size="0.01 0.01 0.15" rgba="1 1 1 1"/>
+            <geom name="fence_03" type="box" pos="0 -0.155 0.18" size="0.01 0.15 0.12" rgba="0.75 0.75 0.75 0.5"/>
+            <geom name="fence_04" type="box" pos="0 0 0.15" size="0.01 0.01 0.15" rgba="1 1 1 1"/>
+            <geom name="fence_05" type="box" pos="0 0.155 0.18" size="0.01 0.15 0.12" rgba="0.75 0.75 0.75 0.5"/>
+            <geom name="fence_06" type="box" pos="0 0.315 0.15" size="0.01 0.01 0.15" rgba="1 1 1 1"/>
+            <geom name="fence_07" type="box" pos="0 0.47 0.18" size="0.01 0.15 0.12" rgba="0.75 0.75 0.75 0.5"/>
+            <geom name="fence_08" type="box" pos="0 0.63 0.15" size="0.01 0.01 0.15" rgba="1 1 1 1"/>
+            <geom name="fence_09" type="box" pos="0 0.785 0.18" size="0.01 0.15 0.12" rgba="0.75 0.75 0.75 0.5"/>
+            <geom name="fence_10" type="box" pos="0 0.94 0.15" size="0.01 0.01 0.15" rgba="1 1 1 1"/>
+        </body>
+
+        <!-- <body name="material" pos="0 0.01 0.975">
+            <geom name="material_00" type="mesh" mesh="material_box" contype="0" conaffinity="0" euler="0 0 1.57" rgba="0.9 0.9 0.95 1"/>
+            <geom name="material_01" type="box" pos="0 0 0" size="0.3 0.2 0.01" rgba="1 0 1 0"/>
+            <geom name="material_02" type="box" pos="0 0.192 0.14" size="0.3 0.007 0.14" rgba="1 0 1 0"/>
+            <geom name="material_03" type="box" pos="0 -0.192 0.14" size="0.3 0.007 0.14" rgba="1 0 1 0"/>
+            <geom name="material_04" type="box" pos="0.286 0 0.14" size="0.01 0.2 0.14" rgba="1 0 1 0"/>
+            <geom name="material_05" type="box" pos="-0.286 0 0.14" size="0.01 0.2 0.14" rgba="1 0 1 0"/>
+        </body> -->
+
+        <body name="table" pos="0.25 -1.2 0" euler="1.57 0 0">
+            <geom name="table_00" type="box" pos="0 0 0.75" size="0.3 0.4 0.01" rgba="1 1 1 1"/>
+            <geom name="table_01" type="box" pos="0.28 0.2 0.375" size="0.01 0.01 0.375" rgba="1 1 1 1"/>
+            <geom name="table_02" type="box" pos="-0.28 0.2 0.375" size="0.01 0.01 0.375" rgba="1 1 1 1"/>
+            <geom name="table_03" type="box" pos="0.28 -0.2 0.375" size="0.01 0.01 0.375" rgba="1 1 1 1"/>
+            <geom name="table_04" type="box" pos="-0.28 -0.2 0.375" size="0.01 0.01 0.375" rgba="1 1 1 1"/>
+        </body>
+
+        <plugin plugin="mujoco_ros2_control::MujocoRos2ControlPlugin"/>
+
+    </worldbody>
+
+</mujoco>

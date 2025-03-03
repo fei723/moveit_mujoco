@@ -1,0 +1,969 @@
+<mujoco model="M92UW">
+  <compiler convexhull="false" angle="radian" meshdir="../../meshes/M92UW/visual/" texturedir="../../textures/"/>
+
+  <option timestep="0.001"/>
+
+  <asset>
+    <mesh name="base_link" file="base_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="lf_wheel_link" file="lf_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="lb_wheel_link" file="lb_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="rf_wheel_link" file="rf_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="rb_wheel_link" file="rb_wheel_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="ankle_p_link" file="ankle_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="knee_p_link" file="knee_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="waist1_p_link" file="waist1_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="waist2_y_link" file="waist2_y_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="torso_link" file="torso_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="head2_p_link" file="head2_p_link.stl"/>
+    <mesh name="l_arm1_shoulder_p_link" file="l_arm1_shoulder_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_arm2_shoulder_r_link" file="l_arm2_shoulder_r_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_arm3_shoulder_y_link" file="l_arm3_shoulder_y_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_arm4_elbow_p_link" file="l_arm4_elbow_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_arm5_wrist_y_link" file="l_arm5_wrist_y_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_arm6_wrist_p_link" file="l_arm6_wrist_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_arm7_wrist_r_link" file="l_arm7_wrist_r_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_arm1_shoulder_p_link" file="r_arm1_shoulder_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_arm2_shoulder_r_link" file="r_arm2_shoulder_r_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_arm3_shoulder_y_link" file="r_arm3_shoulder_y_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_arm4_elbow_p_link" file="r_arm4_elbow_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_arm5_wrist_y_link" file="r_arm5_wrist_y_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_arm6_wrist_p_link" file="r_arm6_wrist_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_arm7_wrist_r_link" file="r_arm7_wrist_r_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_thumb_cmc_y_link" file="l_thumb_cmc_y_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_thumb_cmc_p_link" file="l_thumb_cmc_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_thumb_mcp_link" file="l_thumb_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_thumb_ip_link" file="l_thumb_ip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_index_mcp_link" file="l_index_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_index_pip_link" file="l_index_pip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_middle_mcp_link" file="l_middle_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_middle_pip_link" file="l_middle_pip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_ring_mcp_link" file="l_ring_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_ring_pip_link" file="l_ring_pip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_pinky_mcp_link" file="l_pinky_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l_pinky_pip_link" file="l_pinky_pip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_thumb_cmc_y_link" file="r_thumb_cmc_y_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_thumb_cmc_p_link" file="r_thumb_cmc_p_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_thumb_mcp_link" file="r_thumb_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_thumb_ip_link" file="r_thumb_ip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_index_mcp_link" file="r_index_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_index_pip_link" file="r_index_pip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_middle_mcp_link" file="r_middle_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_middle_pip_link" file="r_middle_pip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_ring_mcp_link" file="r_ring_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_ring_pip_link" file="r_ring_pip_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_pinky_mcp_link" file="r_pinky_mcp_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r_pinky_pip_link" file="r_pinky_pip_link.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <body name="base_footprint">
+<!--      <joint name="base_footprint_free_joint" type="free" limited="false" actuatorfrclimited="false"/>-->
+      <body name="base_link" pos="0 0 0.1">
+        <inertial pos="0.0133677 0 -0.0150958" quat="0.497862 0.497862 -0.502129 0.502129" mass="74.7863" diaginertia="4.39012 2.57003 2.47861"/>
+        <geom name="base_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="base_link"/>
+        <body name="lf_wheel_link" pos="0.29 0.12 -0.03">
+          <inertial pos="0 0.109662 0" quat="0.5 0.5 0.5 0.5" mass="1.11565" diaginertia="0.00503805 0.00305791 0.0030579"/>
+          <geom name="lf_wheel_link_col" type="mesh" rgba="1 1 1 1" mesh="lf_wheel_link"/>
+        </body>
+        <body name="lb_wheel_link" pos="-0.29 0.12 -0.03">
+          <inertial pos="0 0.109662 0" quat="0.5 0.5 0.5 0.5" mass="1.11565" diaginertia="0.00503805 0.00305791 0.0030579"/>
+          <geom name="lb_wheel_link_col" type="mesh" rgba="1 1 1 1" mesh="lb_wheel_link"/>
+        </body>
+        <body name="rf_wheel_link" pos="0.29 -0.12 -0.03">
+          <inertial pos="0 -0.109662 0" quat="0.5 0.5 0.5 0.5" mass="1.11565" diaginertia="0.00503805 0.00305791 0.0030579"/>
+          <geom name="rf_wheel_link_col" type="mesh" rgba="1 1 1 1" mesh="rf_wheel_link"/>
+        </body>
+        <body name="rb_wheel_link" pos="-0.29 -0.12 -0.03">
+          <inertial pos="0 -0.109662 0" quat="0.5 0.5 0.5 0.5" mass="1.11565" diaginertia="0.00503805 0.00305791 0.0030579"/>
+          <geom name="rb_wheel_link_col" type="mesh" rgba="1 1 1 1" mesh="rb_wheel_link"/>
+        </body>
+        <body name="ankle_p_link" pos="0.085 0 0">
+          <inertial pos="0 0.000313537 0.2" mass="5.00147" diaginertia="0.127424 0.110785 0.0405234"/>
+          <joint name="ankle_p_joint" pos="0 0 0" axis="0 1 0" range="-1.5708 0.0523599" actuatorfrcrange="-436 436" damping="0.003" frictionloss="0.2"/>
+          <geom name="ankle_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="ankle_p_link"/>
+          <body name="knee_p_link" pos="0 0 0.4">
+            <inertial pos="-0.000172505 -5.74994e-05 0.0915208" quat="0.707167 -0.000334243 -0.000659821 0.707047" mass="9.99958" diaginertia="0.179663 0.177182 0.0382093"/>
+            <joint name="knee_p_joint" pos="0 0 0" axis="0 1 0" range="-0.0523599 2.77682" actuatorfrcrange="-436 436" damping="0.003" frictionloss="0.2"/>
+            <geom name="knee_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="knee_p_link"/>
+            <body name="waist1_p_link" pos="0 0 0.4">
+              <inertial pos="0 0 0.0574298" quat="0.707107 0 0 0.707107" mass="6.30492" diaginertia="0.0317453 0.029907 0.0123309"/>
+              <joint name="waist1_p_joint" pos="0 0 0" axis="0 1 0" range="-2.26893 2.26893" actuatorfrcrange="-207 207" damping="0.003" frictionloss="0.2"/>
+              <geom name="waist1_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="waist1_p_link"/>
+              <body name="waist2_y_link">
+                <inertial pos="0 0 0.173079" quat="0.5 0.5 -0.5 0.5" mass="0.709044" diaginertia="0.00205483 0.00104433 0.00104433"/>
+                <joint name="waist2_y_joint" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" actuatorfrcrange="-207 207" damping="0.003" frictionloss="0.2"/>
+                <geom name="waist2_y_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="waist2_y_link"/>
+                <body name="torso_link" pos="0 0 0.51">
+                  <inertial pos="-0.00854879 -9.6069e-06 -0.077759" quat="0.999389 5.99077e-05 0.0349579 -6.75391e-05" mass="12.3506" diaginertia="0.353908 0.26641 0.200986"/>
+                  <geom name="torso_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="torso_link"/>
+                  <body name="head1_y_link" pos="0.00825076 0 0.187488" quat="0.993566 0 0.113256 0">
+                    <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1e-05" diaginertia="1.25e-10 8.33333e-11 8.33333e-11"/>
+                    <joint name="head1_y_joint" pos="0 0 0" axis="0 0 1" range="-0.785398 0.785398" actuatorfrcrange="-16 16" damping="0.003" frictionloss="0.2"/>
+                    <geom name="head1_y_link_col" size="0.005" rgba="0.85 0.85 0.85 1"/>
+                    <body name="head2_p_link">
+                      <inertial pos="0.0100245 0 0.0036804" quat="0.706555 0.0279412 0.0279412 0.706555" mass="2.99734" diaginertia="0.027527 0.0245278 0.0107144"/>
+                      <joint name="head2_p_joint" pos="0 0 0" axis="0 1 0" range="-0.349066 0.261799" actuatorfrcrange="-15 15" damping="0.003" frictionloss="0.2"/>
+                      <geom name="head2_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="head2_p_link"/>
+                    </body>
+                  </body>
+                  <body name="l_arm1_shoulder_p_link" pos="0 0.225 0">
+                    <inertial pos="0.00895069 -0.00791024 0.00104782" quat="-0.0505226 0.709 0.129367 0.691397" mass="2.34787" diaginertia="0.00493248 0.00450669 0.00366384"/>
+                    <joint name="l_arm1_shoulder_p_joint" pos="0 0 0" axis="0 1 0" range="-3.14159 1.00007" actuatorfrcrange="-107 107" damping="0.003" frictionloss="0.2"/>
+                    <geom name="l_arm1_shoulder_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_arm1_shoulder_p_link"/>
+                    <body name="l_arm2_shoulder_r_link">
+                      <inertial pos="0.000363052 0.011843 -0.0365219" quat="0.982239 0.150967 -0.0234078 0.108938" mass="0.752588" diaginertia="0.0026068 0.00254522 0.00157418"/>
+                      <joint name="l_arm2_shoulder_r_joint" pos="0 0 0" axis="1 0 0" range="-0.523599 1.5708" actuatorfrcrange="-107 107" damping="0.003" frictionloss="0.2"/>
+                      <geom name="l_arm2_shoulder_r_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_arm2_shoulder_r_link"/>
+                      <body name="l_arm3_shoulder_y_link" pos="0 0.0275 -0.28">
+                        <inertial pos="0.00948372 0.000928382 0.0722028" quat="0.695564 -0.0422109 -0.0496158 0.715504" mass="2.80322" diaginertia="0.0176151 0.0173345 0.00288822"/>
+                        <joint name="l_arm3_shoulder_y_joint" pos="0 0 0" axis="0 0 1" range="-3.13985 3.13985" actuatorfrcrange="-70 70" damping="0.003" frictionloss="0.2"/>
+                        <geom name="l_arm3_shoulder_y_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_arm3_shoulder_y_link"/>
+                        <body name="l_arm4_elbow_p_link" pos="0.02 0 0">
+                          <inertial pos="-0.0168789 -0.0024246 -0.083473" quat="0.995951 0.0553975 0.0695835 0.0130771" mass="1.49514" diaginertia="0.00434215 0.00403417 0.00186963"/>
+                          <joint name="l_arm4_elbow_p_joint" pos="0 0 0" axis="0 1 0" range="-2.61625 0.0523599" actuatorfrcrange="-70 70" damping="0.003" frictionloss="0.2"/>
+                          <geom name="l_arm4_elbow_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_arm4_elbow_p_link"/>
+                          <body name="l_arm5_wrist_y_link" pos="-0.02 0 -0.213">
+                            <inertial pos="1.01054e-05 -0.000792077 0.0334678" quat="0.583769 0.811918 0.00141944 -0.000502587" mass="0.272266" diaginertia="0.00042678 0.000381661 0.000282786"/>
+                            <joint name="l_arm5_wrist_y_joint" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-36 36" damping="0.003" frictionloss="0.2"/>
+                            <geom name="l_arm5_wrist_y_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_arm5_wrist_y_link"/>
+                            <body name="l_arm6_wrist_p_link">
+                              <inertial pos="-0.00239775 0.00329415 -0.0274711" quat="0.989259 -0.0612722 0.0546544 0.120934" mass="0.876903" diaginertia="0.00114029 0.00113184 0.00052297"/>
+                              <joint name="l_arm6_wrist_p_joint" pos="0 0 0" axis="0 1 0" range="-1.39626 1.39626" actuatorfrcrange="-15 15" damping="0.003" frictionloss="0.2"/>
+                              <geom name="l_arm6_wrist_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_arm6_wrist_p_link"/>
+                              <body name="l_arm7_wrist_r_link" pos="0 0 -0.055">
+                                <inertial pos="0.00562895 -0.000263129 -0.137134" quat="0.997437 -0.0645333 -0.0254291 -0.0175643" mass="1.11828" diaginertia="0.000540929 0.000408371 0.000283981"/>
+                                <joint name="l_arm7_wrist_r_joint" pos="0 0 0" axis="1 0 0" range="-1.39626 1.39626" actuatorfrcrange="-15 15" damping="0.003" frictionloss="0.2"/>
+                                <geom name="l_arm7_wrist_r_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_arm7_wrist_r_link"/>
+                                <body name="l_end_effector_link">
+                                  <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1e-05" diaginertia="5e-12 3.33333e-12 3.33333e-12"/>
+                                  <body name="l_hand_palm_link" pos="-2.2e-11 2.45e-10 -0.1002" quat="1.89469e-08 0.707107 0.707107 1.89469e-08">
+                                    <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1e-05" diaginertia="1.25e-10 8.33333e-11 8.33333e-11"/>
+                                    <geom name="l_hand_palm_link_col" size="0.005" rgba="0.9 1 0 1"/>
+                                    <body name="l_thumb_cmc_y_link" pos="-0.01286 0.030499 0.0422" quat="0.996195 1.65204e-09 2.11685e-08 0.0871535">
+                                      <inertial pos="-0.00434458 0.00073516 0.000921144" quat="0.39318 0.453061 0.609332 0.518518" mass="0.0001" diaginertia="2.17528e-07 1.8238e-07 1.19011e-07"/>
+                                      <joint name="l_thumb_cmc_y_joint" pos="0 0 0" axis="0 0 1" range="0 1.5708" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="l_thumb_cmc_y_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_thumb_cmc_y_link"/>
+                                      <body name="l_thumb_cmc_p_link" pos="0 0.010222 -0.00125" quat="0.610872 -0.35614 0.35614 0.610872">
+                                        <inertial pos="0.00371462 0 0.0257144" quat="0.705374 -0.0494723 -0.0494723 0.705374" mass="0.0001" diaginertia="1.29507e-05 1.17031e-05 4.60875e-06"/>
+                                        <joint name="l_thumb_cmc_p_joint" pos="0 0 0" axis="0 1 0" range="-0.958186 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="l_thumb_cmc_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_thumb_cmc_p_link"/>
+                                        <body name="l_thumb_mcp_link" pos="0 0 0.061208" quat="0.997912 0 0.0645952 0">
+                                          <inertial pos="0.00340515 0 0.0107271" quat="0.662466 0.662466 0.247261 -0.247261" mass="0.0001" diaginertia="6.76932e-07 6.3788e-07 6.35339e-07"/>
+                                          <joint name="l_thumb_mcp_joint" pos="0 0 0" axis="0 1 0" range="-1.00007 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                          <geom name="l_thumb_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_thumb_mcp_link"/>
+                                          <body name="l_thumb_ip_link" pos="0 0 0.021998" quat="0.999886 0 0.0150852 0">
+                                            <inertial pos="0.000582124 4.42664e-06 0.0148811" quat="0.998782 0.000180842 -0.0493348 -0.000991977" mass="0.0001" diaginertia="1.02735e-06 9.9146e-07 3.12573e-07"/>
+                                            <joint name="l_thumb_ip_joint" pos="0 0 0" axis="0 1 0" range="-1.00007 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                            <geom name="l_thumb_ip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_thumb_ip_link"/>
+                                          </body>
+                                        </body>
+                                      </body>
+                                    </body>
+                                    <body name="l_index_mcp_link" pos="0.0098 0.03651 0.137131" quat="0.994677 -0.0260471 -0.099657 0.00260149">
+                                      <inertial pos="0.0024319 -3.32848e-07 0.0100281" quat="0.706718 0.0149178 0.0149342 0.70718" mass="0.0001" diaginertia="1.17326e-06 1.15439e-06 5.59038e-07"/>
+                                      <joint name="l_index_mcp_joint" pos="0 0 0" axis="0 1 0" range="-1.50971 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="l_index_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_index_mcp_link"/>
+                                      <body name="l_index_pip_link" pos="0 0 0.0310058" quat="0.999685 0 -0.025079 0">
+                                        <inertial pos="-0.00219206 2.81739e-06 0.0232403" quat="0.998808 -4.92595e-05 0.0488007 -0.000586221" mass="0.0001" diaginertia="2.91006e-06 2.87262e-06 3.38002e-07"/>
+                                        <joint name="l_index_pip_joint" pos="0 0 0" axis="0 1 0" range="0 3.58316" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="l_index_pip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_index_pip_link"/>
+                                      </body>
+                                    </body>
+                                    <body name="l_middle_mcp_link" pos="0.0098 0.0110499 0.1383" quat="0.995018 0 -0.0996914 0">
+                                      <inertial pos="0.0024319 -3.32848e-07 0.0100281" quat="0.706718 0.0149178 0.0149342 0.70718" mass="0.0001" diaginertia="1.17326e-06 1.15439e-06 5.59038e-07"/>
+                                      <joint name="l_middle_mcp_joint" pos="0 0 0" axis="0 1 0" range="-1.50971 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="l_middle_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_middle_mcp_link"/>
+                                      <body name="l_middle_pip_link" pos="0 0 0.0310058" quat="0.999685 0 -0.025079 0">
+                                        <inertial pos="-0.00219206 2.81739e-06 0.0232403" quat="0.998808 -4.92595e-05 0.0488007 -0.000586221" mass="0.0001" diaginertia="2.91006e-06 2.87262e-06 3.38002e-07"/>
+                                        <joint name="l_middle_pip_joint" pos="0 0 0" axis="0 1 0" range="0 3.58316" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="l_middle_pip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_middle_pip_link"/>
+                                      </body>
+                                    </body>
+                                    <body name="l_ring_mcp_link" pos="0.0098 -0.0144639 0.138135" quat="0.994677 0.0260464 -0.0996572 -0.00260931">
+                                      <inertial pos="0.0024319 -3.32848e-07 0.0100281" quat="0.706718 0.0149178 0.0149342 0.70718" mass="0.0001" diaginertia="1.17326e-06 1.15439e-06 5.59038e-07"/>
+                                      <joint name="l_ring_mcp_joint" pos="0 0 0" axis="0 1 0" range="-1.50971 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="l_ring_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_ring_mcp_link"/>
+                                      <body name="l_ring_pip_link" pos="0 0 0.0310058" quat="0.999685 0 -0.025079 0">
+                                        <inertial pos="-0.00219206 2.81739e-06 0.0232403" quat="0.998808 -4.92595e-05 0.0488007 -0.000586221" mass="0.0001" diaginertia="2.91006e-06 2.87262e-06 3.38002e-07"/>
+                                        <joint name="l_ring_pip_joint" pos="0 0 0" axis="0 1 0" range="0 3.58316" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="l_ring_pip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_ring_pip_link"/>
+                                      </body>
+                                    </body>
+                                    <body name="l_pinky_mcp_link" pos="0.0098 -0.0398034 0.13514" quat="0.993655 0.0520687 -0.0995523 -0.00521756">
+                                      <inertial pos="0.0024319 -3.32848e-07 0.0100281" quat="0.706718 0.0149178 0.0149342 0.70718" mass="0.0001" diaginertia="1.17326e-06 1.15439e-06 5.59038e-07"/>
+                                      <joint name="l_pinky_mcp_joint" pos="0 0 0" axis="0 1 0" range="-1.50971 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="l_pinky_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_pinky_mcp_link"/>
+                                      <body name="l_pinky_pip_link" pos="0 0 0.0310058" quat="0.999685 0 -0.025079 0">
+                                        <inertial pos="-0.00219206 2.81739e-06 0.0232403" quat="0.998808 -4.92595e-05 0.0488007 -0.000586221" mass="0.0001" diaginertia="2.91006e-06 2.87262e-06 3.38002e-07"/>
+                                        <joint name="l_pinky_pip_joint" pos="0 0 0" axis="0 1 0" range="0 3.58316" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="l_pinky_pip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="l_pinky_pip_link"/>
+                                      </body>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                  <body name="r_arm1_shoulder_p_link" pos="0 -0.225 0">
+                    <inertial pos="0.00895069 0.00791024 0.00104782" quat="0.0505226 0.709 -0.129367 0.691397" mass="2.34787" diaginertia="0.00493248 0.00450669 0.00366384"/>
+                    <joint name="r_arm1_shoulder_p_joint" pos="0 0 0" axis="0 1 0" range="-3.14159 1.00007" actuatorfrcrange="-107 107" damping="0.003" frictionloss="0.2"/>
+                    <geom name="r_arm1_shoulder_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_arm1_shoulder_p_link"/>
+                    <body name="r_arm2_shoulder_r_link">
+                      <inertial pos="0.000363052 -0.011843 -0.0365219" quat="0.982239 -0.150967 -0.0234078 -0.108938" mass="0.752588" diaginertia="0.0026068 0.00254522 0.00157418"/>
+                      <joint name="r_arm2_shoulder_r_joint" pos="0 0 0" axis="1 0 0" range="-1.5708 0.523599" actuatorfrcrange="-107 107" damping="0.003" frictionloss="0.2"/>
+                      <geom name="r_arm2_shoulder_r_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_arm2_shoulder_r_link"/>
+                      <body name="r_arm3_shoulder_y_link" pos="0 -0.0275 -0.28">
+                        <inertial pos="0.00948372 -0.000928382 0.0722028" quat="0.715504 -0.0496158 -0.0422109 0.695564" mass="2.80322" diaginertia="0.0176151 0.0173345 0.00288822"/>
+                        <joint name="r_arm3_shoulder_y_joint" pos="0 0 0" axis="0 0 1" range="-3.13985 3.13985" actuatorfrcrange="-70 70" damping="0.003" frictionloss="0.2"/>
+                        <geom name="r_arm3_shoulder_y_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_arm3_shoulder_y_link"/>
+                        <body name="r_arm4_elbow_p_link" pos="0.02 0 0">
+                          <inertial pos="-0.0168789 0.0024246 -0.083473" quat="0.995951 -0.0553975 0.0695835 -0.0130771" mass="1.49514" diaginertia="0.00434215 0.00403417 0.00186963"/>
+                          <joint name="r_arm4_elbow_p_joint" pos="0 0 0" axis="0 1 0" range="-2.61625 0.0523599" actuatorfrcrange="-70 70" damping="0.003" frictionloss="0.2"/>
+                          <geom name="r_arm4_elbow_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_arm4_elbow_p_link"/>
+                          <body name="r_arm5_wrist_y_link" pos="-0.02 0 -0.213">
+                            <inertial pos="1.01054e-05 0.000792077 0.0334678" quat="0.811918 0.583769 0.000502587 -0.00141944" mass="0.272266" diaginertia="0.00042678 0.000381661 0.000282786"/>
+                            <joint name="r_arm5_wrist_y_joint" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-36 36" damping="0.003" frictionloss="0.2"/>
+                            <geom name="r_arm5_wrist_y_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_arm5_wrist_y_link"/>
+                            <body name="r_arm6_wrist_p_link">
+                              <inertial pos="-0.00239775 -0.00329415 -0.0274711" quat="0.989259 0.0612722 0.0546544 -0.120934" mass="0.876903" diaginertia="0.00114029 0.00113184 0.00052297"/>
+                              <joint name="r_arm6_wrist_p_joint" pos="0 0 0" axis="0 1 0" range="-1.39626 1.39626" actuatorfrcrange="-15 15" damping="0.003" frictionloss="0.2"/>
+                              <geom name="r_arm6_wrist_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_arm6_wrist_p_link"/>
+                              <body name="r_arm7_wrist_r_link" pos="0 0 -0.055">
+                                <inertial pos="0.00562895 0.000263129 -0.137134" quat="0.997437 0.0645333 -0.0254291 0.0175643" mass="1.11828" diaginertia="0.000540929 0.000408371 0.000283981"/>
+                                <joint name="r_arm7_wrist_r_joint" pos="0 0 0" axis="1 0 0" range="-1.39626 1.39626" actuatorfrcrange="-15 15" damping="0.003" frictionloss="0.2"/>
+                                <geom name="r_arm7_wrist_r_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_arm7_wrist_r_link"/>
+                                <body name="r_end_effector_link">
+                                  <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1e-05" diaginertia="5e-12 3.33333e-12 3.33333e-12"/>
+                                  <body name="r_hand_palm_link" pos="-2.2e-11 -2.45e-10 -0.1002" quat="1.89469e-08 0.707107 0.707107 1.89469e-08">
+                                    <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1e-05" diaginertia="1.25e-10 8.33333e-11 8.33333e-11"/>
+                                    <geom name="r_hand_palm_link_col" size="0.005" rgba="0.9 1 0 1"/>
+                                    <body name="r_thumb_cmc_y_link" pos="0.01286 0.030499 0.0422" quat="0.996195 1.65204e-09 -2.11685e-08 -0.0871535">
+                                      <inertial pos="0.00434458 0.00073516 0.000921144" quat="0.609332 0.518518 0.39318 0.453061" mass="0.0001" diaginertia="2.17528e-07 1.8238e-07 1.19011e-07"/>
+                                      <joint name="r_thumb_cmc_y_joint" pos="0 0 0" axis="0 0 1" range="-1.5708 0" actuatorfrcrange="-1000 1000" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="r_thumb_cmc_y_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_thumb_cmc_y_link"/>
+                                      <body name="r_thumb_cmc_p_link" pos="0 0.010222 -0.00125" quat="0.610872 -0.35614 0.35614 0.610872">
+                                        <inertial pos="0.00371462 0 0.0257144" quat="0.705374 -0.0494723 -0.0494723 0.705374" mass="0.0001" diaginertia="1.29507e-05 1.17031e-05 4.60875e-06"/>
+                                        <joint name="r_thumb_cmc_p_joint" pos="0 0 0" axis="0 1 0" range="-0.958186 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="r_thumb_cmc_p_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_thumb_cmc_p_link"/>
+                                        <body name="r_thumb_mcp_link" pos="0 0 0.061208" quat="0.997912 0 0.0645952 0">
+                                          <inertial pos="0.00340515 0 0.0107271" quat="0.662466 0.662466 0.247261 -0.247261" mass="0.0001" diaginertia="6.76932e-07 6.3788e-07 6.35339e-07"/>
+                                          <joint name="r_thumb_mcp_joint" pos="0 0 0" axis="0 1 0" range="-1.00007 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                          <geom name="r_thumb_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_thumb_mcp_link"/>
+                                          <body name="r_thumb_ip_link" pos="0 0 0.021998" quat="0.999886 0 0.0150852 0">
+                                            <inertial pos="0.000582124 4.42664e-06 0.0148811" quat="0.998782 0.000180842 -0.0493348 -0.000991977" mass="0.0001" diaginertia="1.02735e-06 9.9146e-07 3.12573e-07"/>
+                                            <joint name="r_thumb_ip_joint" pos="0 0 0" axis="0 1 0" range="-1.00007 0" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                            <geom name="r_thumb_ip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_thumb_ip_link"/>
+                                          </body>
+                                        </body>
+                                      </body>
+                                    </body>
+                                    <body name="r_index_mcp_link" pos="-0.0098 0.03651 0.137131" quat="0.994677 -0.0260471 0.099657 -0.00260149">
+                                      <inertial pos="-0.0024319 3.32848e-07 0.0100281" quat="0.706718 -0.0149178 -0.0149342 0.70718" mass="0.0001" diaginertia="1.17326e-06 1.15439e-06 5.59038e-07"/>
+                                      <joint name="r_index_mcp_joint" pos="0 0 0" axis="0 1 0" range="0 1.50971" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="r_index_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_index_mcp_link"/>
+                                      <body name="r_index_pip_link" pos="0 0 0.0310058" quat="0.999685 0 0.025079 0">
+                                        <inertial pos="-0.00219206 2.81739e-06 0.0232403" quat="0.998808 -4.92595e-05 0.0488007 -0.000586221" mass="0.0001" diaginertia="2.91006e-06 2.87262e-06 3.38002e-07"/>
+                                        <joint name="r_index_pip_joint" pos="0 0 0" axis="0 1 0" range="0 3.58316" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="r_index_pip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_index_pip_link"/>
+                                      </body>
+                                    </body>
+                                    <body name="r_middle_mcp_link" pos="-0.0098 0.0110499 0.1383" quat="0.995018 0 0.0996914 0">
+                                      <inertial pos="-0.0024319 3.32848e-07 0.0100281" quat="0.706718 -0.0149178 -0.0149342 0.70718" mass="0.0001" diaginertia="1.17326e-06 1.15439e-06 5.59038e-07"/>
+                                      <joint name="r_middle_mcp_joint" pos="0 0 0" axis="0 1 0" range="0 1.50971" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="r_middle_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_middle_mcp_link"/>
+                                      <body name="r_middle_pip_link" pos="0 0 0.0310058" quat="0.999685 0 0.025079 0">
+                                        <inertial pos="-0.00219206 2.81739e-06 0.0232403" quat="0.998808 -4.92595e-05 0.0488007 -0.000586221" mass="0.0001" diaginertia="2.91006e-06 2.87262e-06 3.38002e-07"/>
+                                        <joint name="r_middle_pip_joint" pos="0 0 0" axis="0 1 0" range="0 3.58316" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="r_middle_pip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_middle_pip_link"/>
+                                      </body>
+                                    </body>
+                                    <body name="r_ring_mcp_link" pos="-0.0098 -0.0144639 0.138135" quat="0.994677 0.0260464 0.0996572 0.00260931">
+                                      <inertial pos="-0.0024319 3.32848e-07 0.0100281" quat="0.706718 -0.0149178 -0.0149342 0.70718" mass="0.0001" diaginertia="1.17326e-06 1.15439e-06 5.59038e-07"/>
+                                      <joint name="r_ring_mcp_joint" pos="0 0 0" axis="0 1 0" range="0 1.50971" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="r_ring_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_ring_mcp_link"/>
+                                      <body name="r_ring_pip_link" pos="0 0 0.0310058" quat="0.999685 0 0.025079 0">
+                                        <inertial pos="-0.00219206 2.81739e-06 0.0232403" quat="0.998808 -4.92595e-05 0.0488007 -0.000586221" mass="0.0001" diaginertia="2.91006e-06 2.87262e-06 3.38002e-07"/>
+                                        <joint name="r_ring_pip_joint" pos="0 0 0" axis="0 1 0" range="0 3.58316" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="r_ring_pip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_ring_pip_link"/>
+                                      </body>
+                                    </body>
+                                    <body name="r_pinky_mcp_link" pos="-0.0098 -0.0398034 0.13514" quat="0.993655 0.0520687 0.0995523 0.00521756">
+                                      <inertial pos="-0.0024319 3.32848e-07 0.0100281" quat="0.706718 -0.0149178 -0.0149342 0.70718" mass="0.0001" diaginertia="1.17326e-06 1.15439e-06 5.59038e-07"/>
+                                      <joint name="r_pinky_mcp_joint" pos="0 0 0" axis="0 1 0" range="0 1.50971" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                      <geom name="r_pinky_mcp_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_pinky_mcp_link"/>
+                                      <body name="r_pinky_pip_link" pos="0 0 0.0310058" quat="0.999685 0 0.025079 0">
+                                        <inertial pos="-0.00219206 2.81739e-06 0.0232403" quat="0.998808 -4.92595e-05 0.0488007 -0.000586221" mass="0.0001" diaginertia="2.91006e-06 2.87262e-06 3.38002e-07"/>
+                                        <joint name="r_pinky_pip_joint" pos="0 0 0" axis="0 1 0" range="0 3.58316" actuatorfrcrange="-5 5" damping="0.05" frictionloss="0.2"/>
+                                        <geom name="r_pinky_pip_link_col" type="mesh" rgba="0.85 0.85 0.85 1" mesh="r_pinky_pip_link"/>
+                                      </body>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="base_link" body2="lf_wheel_link"/>
+    <exclude body1="base_link" body2="lb_wheel_link"/>
+    <exclude body1="base_link" body2="rf_wheel_link"/>
+    <exclude body1="base_link" body2="rb_wheel_link"/>
+    <exclude body1="base_link" body2="ankle_p_link"/>
+    <exclude body1="lf_wheel_link" body2="lb_wheel_link"/>
+    <exclude body1="lf_wheel_link" body2="rf_wheel_link"/>
+    <exclude body1="lf_wheel_link" body2="rb_wheel_link"/>
+    <exclude body1="lf_wheel_link" body2="ankle_p_link"/>
+    <exclude body1="lf_wheel_link" body2="knee_p_link"/>
+    <exclude body1="lf_wheel_link" body2="waist1_p_link"/>
+    <exclude body1="lf_wheel_link" body2="waist2_y_link"/>
+    <exclude body1="lf_wheel_link" body2="head1_y_link"/>
+    <exclude body1="lf_wheel_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="lf_wheel_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="lb_wheel_link" body2="rf_wheel_link"/>
+    <exclude body1="lb_wheel_link" body2="rb_wheel_link"/>
+    <exclude body1="lb_wheel_link" body2="ankle_p_link"/>
+    <exclude body1="lb_wheel_link" body2="knee_p_link"/>
+    <exclude body1="lb_wheel_link" body2="waist1_p_link"/>
+    <exclude body1="lb_wheel_link" body2="waist2_y_link"/>
+    <exclude body1="lb_wheel_link" body2="head1_y_link"/>
+    <exclude body1="lb_wheel_link" body2="head2_p_link"/>
+    <exclude body1="lb_wheel_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="lb_wheel_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="lb_wheel_link" body2="r_hand_palm_link"/>
+    <exclude body1="lb_wheel_link" body2="r_middle_pip_link"/>
+    <exclude body1="rf_wheel_link" body2="rb_wheel_link"/>
+    <exclude body1="rf_wheel_link" body2="ankle_p_link"/>
+    <exclude body1="rf_wheel_link" body2="knee_p_link"/>
+    <exclude body1="rf_wheel_link" body2="waist1_p_link"/>
+    <exclude body1="rf_wheel_link" body2="waist2_y_link"/>
+    <exclude body1="rf_wheel_link" body2="head1_y_link"/>
+    <exclude body1="rf_wheel_link" body2="l_arm1_shoulder_p_link"/>
+    <exclude body1="rf_wheel_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="rf_wheel_link" body2="l_hand_palm_link"/>
+    <exclude body1="rb_wheel_link" body2="ankle_p_link"/>
+    <exclude body1="rb_wheel_link" body2="knee_p_link"/>
+    <exclude body1="rb_wheel_link" body2="waist1_p_link"/>
+    <exclude body1="rb_wheel_link" body2="waist2_y_link"/>
+    <exclude body1="rb_wheel_link" body2="head1_y_link"/>
+    <exclude body1="rb_wheel_link" body2="head2_p_link"/>
+    <exclude body1="rb_wheel_link" body2="l_arm1_shoulder_p_link"/>
+    <exclude body1="rb_wheel_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="ankle_p_link" body2="knee_p_link"/>
+    <exclude body1="ankle_p_link" body2="head1_y_link"/>
+    <exclude body1="ankle_p_link" body2="head2_p_link"/>
+    <exclude body1="knee_p_link" body2="waist1_p_link"/>
+    <exclude body1="knee_p_link" body2="waist2_y_link"/>
+    <exclude body1="knee_p_link" body2="head1_y_link"/>
+    <exclude body1="knee_p_link" body2="head2_p_link"/>
+    <exclude body1="knee_p_link" body2="l_arm1_shoulder_p_link"/>
+    <exclude body1="knee_p_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="knee_p_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="knee_p_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="waist1_p_link" body2="waist2_y_link"/>
+    <exclude body1="waist1_p_link" body2="torso_link"/>
+    <exclude body1="waist1_p_link" body2="head1_y_link"/>
+    <exclude body1="waist1_p_link" body2="head2_p_link"/>
+    <exclude body1="waist1_p_link" body2="l_arm1_shoulder_p_link"/>
+    <exclude body1="waist1_p_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="waist1_p_link" body2="l_arm3_shoulder_y_link"/>
+    <exclude body1="waist1_p_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="waist1_p_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="waist1_p_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="waist2_y_link" body2="torso_link"/>
+    <exclude body1="waist2_y_link" body2="head1_y_link"/>
+    <exclude body1="waist2_y_link" body2="head2_p_link"/>
+    <exclude body1="waist2_y_link" body2="l_arm1_shoulder_p_link"/>
+    <exclude body1="waist2_y_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="waist2_y_link" body2="l_arm3_shoulder_y_link"/>
+    <exclude body1="waist2_y_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="waist2_y_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="waist2_y_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="torso_link" body2="head1_y_link"/>
+    <exclude body1="torso_link" body2="head2_p_link"/>
+    <exclude body1="torso_link" body2="l_arm1_shoulder_p_link"/>
+    <exclude body1="torso_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="torso_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="torso_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="head1_y_link" body2="head2_p_link"/>
+    <exclude body1="head1_y_link" body2="l_arm1_shoulder_p_link"/>
+    <exclude body1="head1_y_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="head1_y_link" body2="l_arm3_shoulder_y_link"/>
+    <exclude body1="head1_y_link" body2="l_arm4_elbow_p_link"/>
+    <exclude body1="head1_y_link" body2="l_hand_palm_link"/>
+    <exclude body1="head1_y_link" body2="l_thumb_cmc_y_link"/>
+    <exclude body1="head1_y_link" body2="l_thumb_cmc_p_link"/>
+    <exclude body1="head1_y_link" body2="l_thumb_mcp_link"/>
+    <exclude body1="head1_y_link" body2="l_thumb_ip_link"/>
+    <exclude body1="head1_y_link" body2="l_index_mcp_link"/>
+    <exclude body1="head1_y_link" body2="l_index_pip_link"/>
+    <exclude body1="head1_y_link" body2="l_middle_mcp_link"/>
+    <exclude body1="head1_y_link" body2="l_middle_pip_link"/>
+    <exclude body1="head1_y_link" body2="l_ring_pip_link"/>
+    <exclude body1="head1_y_link" body2="l_pinky_pip_link"/>
+    <exclude body1="head1_y_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="head1_y_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="head1_y_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="head1_y_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="head1_y_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="head1_y_link" body2="r_hand_palm_link"/>
+    <exclude body1="head1_y_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="head1_y_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="head1_y_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="head1_y_link" body2="r_thumb_ip_link"/>
+    <exclude body1="head1_y_link" body2="r_index_mcp_link"/>
+    <exclude body1="head1_y_link" body2="r_middle_mcp_link"/>
+    <exclude body1="head1_y_link" body2="r_middle_pip_link"/>
+    <exclude body1="head1_y_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="head1_y_link" body2="r_pinky_pip_link"/>
+    <exclude body1="head2_p_link" body2="l_arm1_shoulder_p_link"/>
+    <exclude body1="head2_p_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="head2_p_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="head2_p_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="l_arm2_shoulder_r_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="l_arm3_shoulder_y_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="l_arm4_elbow_p_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="l_arm5_wrist_y_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="l_arm6_wrist_p_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="r_arm6_wrist_p_link"/>
+    <exclude body1="l_arm1_shoulder_p_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="l_arm3_shoulder_y_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="l_arm4_elbow_p_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="l_arm5_wrist_y_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="l_arm6_wrist_p_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="r_arm6_wrist_p_link"/>
+    <exclude body1="l_arm2_shoulder_r_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_arm4_elbow_p_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_arm5_wrist_y_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_arm6_wrist_p_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_arm7_wrist_r_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_hand_palm_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_thumb_cmc_y_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_thumb_cmc_p_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_thumb_mcp_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_thumb_ip_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_index_mcp_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_index_pip_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_arm3_shoulder_y_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_arm5_wrist_y_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_arm6_wrist_p_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_arm7_wrist_r_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_hand_palm_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_thumb_cmc_y_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_thumb_cmc_p_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_thumb_mcp_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_thumb_ip_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_index_mcp_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_index_pip_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_arm4_elbow_p_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_arm6_wrist_p_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_arm7_wrist_r_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_hand_palm_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_thumb_cmc_y_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_thumb_cmc_p_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_thumb_mcp_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_thumb_ip_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_index_mcp_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_index_pip_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="r_index_pip_link"/>
+    <exclude body1="l_arm5_wrist_y_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_arm7_wrist_r_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_hand_palm_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_thumb_cmc_y_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_thumb_cmc_p_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_thumb_mcp_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_thumb_ip_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_index_mcp_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_index_pip_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_arm6_wrist_p_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_arm7_wrist_r_link" body2="l_hand_palm_link"/>
+    <exclude body1="l_arm7_wrist_r_link" body2="l_thumb_cmc_y_link"/>
+    <exclude body1="l_arm7_wrist_r_link" body2="l_index_pip_link"/>
+    <exclude body1="l_arm7_wrist_r_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_arm7_wrist_r_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_arm7_wrist_r_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_thumb_cmc_y_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_thumb_cmc_p_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_thumb_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_thumb_ip_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_index_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_index_pip_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_arm1_shoulder_p_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_arm6_wrist_p_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_index_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_index_pip_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_hand_palm_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_thumb_cmc_p_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_thumb_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_thumb_ip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_index_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_index_pip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_index_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_index_pip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_ring_pip_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_thumb_cmc_y_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="l_thumb_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="l_thumb_ip_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="l_index_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_index_pip_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_ring_pip_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_thumb_cmc_p_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="l_thumb_ip_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="l_index_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_index_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_index_pip_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_ring_pip_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_thumb_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_thumb_ip_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_thumb_ip_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_thumb_ip_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_thumb_ip_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_thumb_ip_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_thumb_ip_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_thumb_ip_link" body2="r_index_mcp_link"/>
+    <exclude body1="l_thumb_ip_link" body2="r_index_pip_link"/>
+    <exclude body1="l_thumb_ip_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_thumb_ip_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_thumb_ip_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_thumb_ip_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_index_mcp_link" body2="l_index_pip_link"/>
+    <exclude body1="l_index_mcp_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_index_mcp_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_index_mcp_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_index_mcp_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_index_mcp_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_index_mcp_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_index_mcp_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_index_pip_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_ring_pip_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_index_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_index_pip_link" body2="l_middle_mcp_link"/>
+    <exclude body1="l_index_pip_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_index_pip_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_index_pip_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_index_pip_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_index_pip_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_index_pip_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_index_pip_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_index_pip_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_index_pip_link" body2="r_index_pip_link"/>
+    <exclude body1="l_index_pip_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_index_pip_link" body2="r_ring_pip_link"/>
+    <exclude body1="l_index_pip_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_middle_mcp_link" body2="l_middle_pip_link"/>
+    <exclude body1="l_middle_mcp_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_middle_mcp_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_middle_mcp_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_middle_mcp_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_index_mcp_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_index_pip_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_middle_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_middle_pip_link" body2="l_ring_mcp_link"/>
+    <exclude body1="l_middle_pip_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_middle_pip_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_middle_pip_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_index_pip_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_ring_pip_link"/>
+    <exclude body1="l_middle_pip_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_ring_mcp_link" body2="l_ring_pip_link"/>
+    <exclude body1="l_ring_mcp_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_ring_mcp_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_index_mcp_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_index_pip_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_ring_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_ring_pip_link" body2="l_pinky_mcp_link"/>
+    <exclude body1="l_ring_pip_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_ring_pip_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_ring_pip_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_ring_pip_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_ring_pip_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_ring_pip_link" body2="r_ring_pip_link"/>
+    <exclude body1="l_ring_pip_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="l_pinky_pip_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_index_mcp_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_index_pip_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_pinky_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_hand_palm_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_thumb_ip_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_middle_mcp_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_middle_pip_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_ring_mcp_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_ring_pip_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="l_pinky_pip_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_arm1_shoulder_p_link" body2="r_arm2_shoulder_r_link"/>
+    <exclude body1="r_arm1_shoulder_p_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="r_arm1_shoulder_p_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="r_arm1_shoulder_p_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="r_arm1_shoulder_p_link" body2="r_arm6_wrist_p_link"/>
+    <exclude body1="r_arm1_shoulder_p_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_arm2_shoulder_r_link" body2="r_arm3_shoulder_y_link"/>
+    <exclude body1="r_arm2_shoulder_r_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="r_arm2_shoulder_r_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="r_arm2_shoulder_r_link" body2="r_arm6_wrist_p_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_arm4_elbow_p_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_arm6_wrist_p_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_arm7_wrist_r_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_hand_palm_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_thumb_ip_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_index_pip_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_arm3_shoulder_y_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_arm5_wrist_y_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_arm6_wrist_p_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_arm7_wrist_r_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_hand_palm_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_thumb_ip_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_index_pip_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_arm4_elbow_p_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_arm6_wrist_p_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_arm7_wrist_r_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_hand_palm_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_thumb_ip_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_index_pip_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_arm5_wrist_y_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_arm7_wrist_r_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_hand_palm_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_thumb_ip_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_index_pip_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_arm6_wrist_p_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_arm7_wrist_r_link" body2="r_hand_palm_link"/>
+    <exclude body1="r_arm7_wrist_r_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="r_arm7_wrist_r_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_arm7_wrist_r_link" body2="r_index_pip_link"/>
+    <exclude body1="r_arm7_wrist_r_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_arm7_wrist_r_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_arm7_wrist_r_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_arm7_wrist_r_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_thumb_cmc_y_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_thumb_ip_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_index_pip_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_hand_palm_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_thumb_cmc_p_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_thumb_ip_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_index_pip_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_thumb_cmc_y_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_thumb_cmc_p_link" body2="r_thumb_mcp_link"/>
+    <exclude body1="r_thumb_cmc_p_link" body2="r_thumb_ip_link"/>
+    <exclude body1="r_thumb_cmc_p_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_thumb_cmc_p_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_thumb_cmc_p_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_thumb_cmc_p_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_thumb_cmc_p_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_thumb_cmc_p_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_thumb_mcp_link" body2="r_thumb_ip_link"/>
+    <exclude body1="r_thumb_mcp_link" body2="r_index_mcp_link"/>
+    <exclude body1="r_thumb_mcp_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_thumb_mcp_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_thumb_mcp_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_thumb_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_thumb_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_thumb_ip_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_thumb_ip_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_thumb_ip_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_thumb_ip_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_index_mcp_link" body2="r_index_pip_link"/>
+    <exclude body1="r_index_mcp_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_index_mcp_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_index_mcp_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_index_mcp_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_index_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_index_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_index_pip_link" body2="r_middle_mcp_link"/>
+    <exclude body1="r_index_pip_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_index_pip_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_index_pip_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_index_pip_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_index_pip_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_middle_mcp_link" body2="r_middle_pip_link"/>
+    <exclude body1="r_middle_mcp_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_middle_mcp_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_middle_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_middle_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_middle_pip_link" body2="r_ring_mcp_link"/>
+    <exclude body1="r_middle_pip_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_middle_pip_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_middle_pip_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_ring_mcp_link" body2="r_ring_pip_link"/>
+    <exclude body1="r_ring_mcp_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_ring_mcp_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_ring_pip_link" body2="r_pinky_mcp_link"/>
+    <exclude body1="r_ring_pip_link" body2="r_pinky_pip_link"/>
+    <exclude body1="r_pinky_mcp_link" body2="r_pinky_pip_link"/>
+<!--    <exclude body1="r_thumb_cmc_p_link" body2="r_arm7_wrist_r_link"/>-->
+  </contact>
+
+  <actuator>
+    <general name="ankle_p_actuator" joint="ankle_p_joint" ctrlrange="-436 436"/>
+    <general name="knee_p_actuator" joint="knee_p_joint" ctrlrange="-436 436"/>
+    <general name="waist1_p_actuator" joint="waist1_p_joint" ctrlrange="-207 207"/>
+    <general name="waist2_y_actuator" joint="waist2_y_joint" ctrlrange="-207 207"/>
+    <general name="head1_y_actuator" joint="head1_y_joint" ctrlrange="-16 16"/>
+    <general name="head2_p_actuator" joint="head2_p_joint" ctrlrange="-15 15"/>
+    <general name="l_arm1_shoulder_p_actuator" joint="l_arm1_shoulder_p_joint" ctrlrange="-107 107"/>
+    <general name="l_arm2_shoulder_r_actuator" joint="l_arm2_shoulder_r_joint" ctrlrange="-107 107"/>
+    <general name="l_arm3_shoulder_y_actuator" joint="l_arm3_shoulder_y_joint" ctrlrange="-70 70"/>
+    <general name="l_arm4_elbow_p_actuator" joint="l_arm4_elbow_p_joint" ctrlrange="-70 70"/>
+    <general name="l_arm5_wrist_y_actuator" joint="l_arm5_wrist_y_joint" ctrlrange="-36 36"/>
+    <general name="l_arm6_wrist_p_actuator" joint="l_arm6_wrist_p_joint" ctrlrange="-15 15"/>
+    <general name="l_arm7_wrist_r_actuator" joint="l_arm7_wrist_r_joint" ctrlrange="-15 15"/>
+    <general name="r_arm1_shoulder_p_actuator" joint="r_arm1_shoulder_p_joint" ctrlrange="-107 107"/>
+    <general name="r_arm2_shoulder_r_actuator" joint="r_arm2_shoulder_r_joint" ctrlrange="-107 107"/>
+    <general name="r_arm3_shoulder_y_actuator" joint="r_arm3_shoulder_y_joint" ctrlrange="-70 70"/>
+    <general name="r_arm4_elbow_p_actuator" joint="r_arm4_elbow_p_joint" ctrlrange="-70 70"/>
+    <general name="r_arm5_wrist_y_actuator" joint="r_arm5_wrist_y_joint" ctrlrange="-36 36"/>
+    <general name="r_arm6_wrist_p_actuator" joint="r_arm6_wrist_p_joint" ctrlrange="-15 15"/>
+    <general name="r_arm7_wrist_r_actuator" joint="r_arm7_wrist_r_joint" ctrlrange="-15 15"/>
+    <general name="l_thumb_cmc_y_actuator" joint="l_thumb_cmc_y_joint" ctrlrange="-5 5"/>
+    <general name="l_thumb_cmc_p_actuator" joint="l_thumb_cmc_p_joint" ctrlrange="-5 5"/>
+    <general name="l_thumb_mcp_actuator" joint="l_thumb_mcp_joint" ctrlrange="-5 5"/>
+    <general name="l_thumb_ip_actuator" joint="l_thumb_ip_joint" ctrlrange="-5 5"/>
+    <general name="l_index_mcp_actuator" joint="l_index_mcp_joint" ctrlrange="-5 5"/>
+    <general name="l_index_pip_actuator" joint="l_index_pip_joint" ctrlrange="-5 5"/>
+    <general name="l_middle_mcp_actuator" joint="l_middle_mcp_joint" ctrlrange="-5 5"/>
+    <general name="l_middle_pip_actuator" joint="l_middle_pip_joint" ctrlrange="-5 5"/>
+    <general name="l_ring_mcp_actuator" joint="l_ring_mcp_joint" ctrlrange="-5 5"/>
+    <general name="l_ring_pip_actuator" joint="l_ring_pip_joint" ctrlrange="-5 5"/>
+    <general name="l_pinky_mcp_actuator" joint="l_pinky_mcp_joint" ctrlrange="-5 5"/>
+    <general name="l_pinky_pip_actuator" joint="l_pinky_pip_joint" ctrlrange="-5 5"/>
+    <general name="r_thumb_cmc_y_actuator" joint="r_thumb_cmc_y_joint" ctrlrange="-1000 1000"/>
+    <general name="r_thumb_cmc_p_actuator" joint="r_thumb_cmc_p_joint" ctrlrange="-5 5"/>
+    <general name="r_thumb_mcp_actuator" joint="r_thumb_mcp_joint" ctrlrange="-5 5"/>
+    <general name="r_thumb_ip_actuator" joint="r_thumb_ip_joint" ctrlrange="-5 5"/>
+    <general name="r_index_mcp_actuator" joint="r_index_mcp_joint" ctrlrange="-5 5"/>
+    <general name="r_index_pip_actuator" joint="r_index_pip_joint" ctrlrange="-5 5"/>
+    <general name="r_middle_mcp_actuator" joint="r_middle_mcp_joint" ctrlrange="-5 5"/>
+    <general name="r_middle_pip_actuator" joint="r_middle_pip_joint" ctrlrange="-5 5"/>
+    <general name="r_ring_mcp_actuator" joint="r_ring_mcp_joint" ctrlrange="-5 5"/>
+    <general name="r_ring_pip_actuator" joint="r_ring_pip_joint" ctrlrange="-5 5"/>
+    <general name="r_pinky_mcp_actuator" joint="r_pinky_mcp_joint" ctrlrange="-5 5"/>
+    <general name="r_pinky_pip_actuator" joint="r_pinky_pip_joint" ctrlrange="-5 5"/>
+  </actuator>
+</mujoco>

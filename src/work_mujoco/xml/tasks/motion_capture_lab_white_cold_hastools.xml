@@ -1,0 +1,551 @@
+<mujoco model="car_logo_work">
+    <!-- <include file="m92_c3.xml"/> -->
+    <compiler  angle="radian" eulerseq="zyx"/>
+
+    <!--<custom>-->
+    <!--    <numeric data="8" name="max_contact_points"/>-->
+    <!--</custom>-->
+
+    <!--<option iterations="8" timestep="0.01" impratio="10"/>-->
+
+    <!--<statistic center="0 -0.1 0.2" extent="0.6" meansize="0.05"/>-->
+
+    <asset>
+        <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
+                 markrgb="0.3 0.3 0.3" width="300" height="300"/>
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="2 2"/>
+
+        <texture name="conveyor_belts_surface" file="meshes/environment/conveyor_belts_surface.png" type="2d"/>
+        <material name="conveyor_belts_surface" texture="conveyor_belts_surface" rgba="1 1 1 1" texuniform="true"
+                  texrepeat="2 2"/>
+
+        <texture name="carpeg" file="meshes/environment/carpet.png" type="2d"/>
+        <material name="carpeg" texture="carpeg" rgba="1 1 1 1" texuniform="true"/>
+
+        <texture name="car_logo_png" file="meshes/environment/car_logo.png" type="2d"/>
+        <material name="car_logo_png" texture="car_logo_png"/>
+
+        <texture name="car_hood_png" file="meshes/environment/car_hood_ganlanlv.png" type="2d"/>
+        <material name="car_hood_png" texture="car_hood_png"/>
+
+        <texture name="table_lightmap_png" file="meshes/environment/table_lightmap.png" type="2d"/>
+        <material name="table_lightmap_png" texture="table_lightmap_png"/>
+
+        <!--<texture name="carpeg" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>-->
+        <!--<material name="carpeg" texture="carpeg" texrepeat="6 2" texuniform="true" reflectance=".2"/>-->
+
+        <material name="mirror" rgba="0.1 0.1 0.1 1" reflectance=".2"/>
+        <material name="glass" rgba="1 1 0 0.05" reflectance="0.2"/>
+
+        <mesh name="table" file="meshes/environment/table.STL" scale="0.0005 0.00074 0.00083"/>
+        <mesh name="table_lightmap" file="meshes/environment/table_lightmap.obj" scale="0.1 .1 .1"/>
+        <mesh name="car_logo" file="meshes/environment/car_logo.obj" scale="0.001 0.001 0.001"/>
+        <mesh name="trash_can" file="meshes/environment/trash_can.stl" scale="0.9 0.9 0.9"/>
+        <mesh name="car_hood" file="meshes/environment/car_hood.obj" scale="0.0012 0.0012 0.0012"/>
+
+        <!-- Table dimensions (length x width x height in meters): 1.21x0.76x0.75 -->
+        <mesh file="meshes/table/tablelegs.obj" scale="0.7895 0.7438 0.8267"/>
+        <mesh file="meshes/table/tabletop.obj" scale="0.7895 0.7438 0.8267"/>
+
+
+        <material name='ceilinglight' rgba="0 0 0 0" shininess="0.5" emission="1.0"/>
+
+        <texture type="2d" name="table_texture" file="meshes/table/table_white_black.png"/>
+        <!-- <texture type="2d" name="table_texture" file="meshes/table/table_wood_grain.png"/> -->
+        <!-- <texture type="2d" name="table_texture" file="meshes/table/table_blue_white.png"/> -->
+        <material name="table_material" texture="table_texture"/>
+
+        <texture name='tablebox_texture' type="cube"
+         file="meshes/environment/tablebox.png" gridsize="3 4" gridlayout=".U..LFRB.D.."/>
+        <material name='tablebox_material' texture='tablebox_texture'/>
+
+        <mesh name="trash_mesh" file="meshes/environment/trashnew.obj" scale="0.15 0.18 0.13"/>
+        <texture name='trash_texture' type="2d" file="meshes/environment/test24.png" />
+        <material name="trash_material" texture="trash_texture"/>
+
+        <mesh name="piler_needle_mesh" file="meshes/environment/piler_needle.stl" scale=".001 .001 .001"/>
+        <mesh name="spanner_mesh" file="meshes/environment/spanner.stl" scale=".001 .001 .001"/>
+        <mesh name="screw_driver_mesh" file="meshes/environment/screw_driver.stl" scale=".001 .001 .001"/>
+
+    </asset>
+
+    <visual>
+        <headlight diffuse="0.6 0.6 0.6" ambient="0.4 0.4 0.4" specular="0.2 0.2 0.2"/>
+        <rgba haze="0.15 0.25 0.35 1"/>
+        <global azimuth="90" elevation="-20"/>
+        <quality shadowsize="8192"/>
+    </visual>
+    <worldbody>
+
+        <!-- white  light -->
+        <light pos="2 0 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0.3" ambient="0.45 0.45 0.45" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="0 0 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0.3" ambient="0.45 0.45 0.45" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="-2 0 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0.3" ambient="0.45 0.45 0.45" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="2 2 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0.3" ambient="0.45 0.45 0.45" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="0 2 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0.3" ambient="0.45 0.45 0.45" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="-2 2 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0.3" ambient="0.45 0.45 0.45" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="0 -2 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0.3" ambient="0.45 0.45 0.45" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+
+        <!-- yellow light -->
+        <!-- <light pos="2 0 2.5" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0" ambient="0.65 0.65 0" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="0 0 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0" ambient="0.45 0.45 0" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="-2 0 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0" ambient="0.45 0.45 0" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="2 2 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0" ambient="0.45 0.45 0" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="0 2 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0" ambient="0.45 0.45 0" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="-2 2 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0" ambient="0.45 0.45 0" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/>
+        <light pos="0 -2 2.2" dir="0 0 -1" directional="false" diffuse="0.3 0.3 0" ambient="0.45 0.45 0" specular="0.3 0.3 0.3" cutoff="60" exponent="10"/> -->
+
+        <!-- <light pos="2.058333333 1.275 3" dir="0 0 -1" directional="false"   diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 1.275 3" dir="0 0 -1" directional="false"  diffuse=".2 .2 .2"/>
+        <light pos="2.058333333 -1.275 3" dir="0 0 -1" directional="false"  diffuse=".2 .2 .2"/>
+        <light pos="-2.058333333 -1.275 3" dir="0 0 -1" directional="false" diffuse=".2 .2 .2"/>
+        <light pos="-.225 1.5 3" dir="0 0 -1" directional="false"           diffuse=".2 .2 .2"/> -->
+        <!--<light pos="3 -2.84 2.5" dir="0 0 -1" diffuse=".5 .5 .5" directional="true"/>-->
+        <geom name="ground" pos="0 0 0" size="6.175 3.825 0.005" type="plane" material="carpeg" condim="1"/>
+        <body name="wall">
+            <geom name="wall_east" size="0.2 3.825 1.5" pos=" 6.375 0 1" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom name="wall_west" size="0.2 3.825 1.5" pos="-6.375 0 1" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom name="wall_south" size="6.575 0.2 1.5" pos="0 -4.025 1" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom name="wall_north" size="6.575 0.2 1.5" pos="0 4.025 1" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+        </body>
+
+        <body name="curtain_north" pos="0.25 3.725 1.55" euler="0 0 1.57">
+            <composite prefix="curtain_north" type="grid" count="25 6 1" spacing="0.52" offset="0 0 0">
+                <skin rgba=".15 .15 .15 1" inflate="0.001" subgrid="3"/>
+                <pin coord="0 5"/>
+                <pin coord="2 5"/>
+                <pin coord="4 5"/>
+                <pin coord="6 5"/>
+                <pin coord="8 5"/>
+                <pin coord="10 5"/>
+                <pin coord="12 5"/>
+                <pin coord="14 5"/>
+                <pin coord="16 5"/>
+                <pin coord="18 5"/>
+                <pin coord="20 5"/>
+                <pin coord="22 5"/>
+                <pin coord="24 5"/>
+                <geom size=".05"/>
+            </composite>
+        </body>
+        <body name="curtain_south" pos="0.25 -3.725 1.55" euler="0 0 1.57">
+            <composite prefix="curtain_south" type="grid" count="25 6 1" spacing="0.52" offset="0 0 0">
+                <skin rgba=".15 .15 .15 1" inflate="0.001" subgrid="3"/>
+                <pin coord="0 5"/>
+                <pin coord="2 5"/>
+                <pin coord="4 5"/>
+                <pin coord="6 5"/>
+                <pin coord="8 5"/>
+                <pin coord="10 5"/>
+                <pin coord="12 5"/>
+                <pin coord="14 5"/>
+                <pin coord="16 5"/>
+                <pin coord="18 5"/>
+                <pin coord="20 5"/>
+                <pin coord="22 5"/>
+                <pin coord="24 5"/>
+                <geom size=".05"/>
+            </composite>
+        </body>
+        <body name="curtain_east" pos="6.025 0.25 1.55" euler="1.57 0 1.57">
+            <composite prefix="curtain_east" type="grid" count="17 6 1" spacing="0.49" offset="0 0 0">
+                <skin rgba=".15 .15 .15 1" inflate="0.001" subgrid="3"/>
+                <pin coord="0 5"/>
+                <pin coord="2 5"/>
+                <pin coord="4 5"/>
+                <pin coord="6 5"/>
+                <pin coord="8 5"/>
+                <pin coord="10 5"/>
+                <pin coord="12 5"/>
+                <pin coord="14 5"/>
+                <pin coord="16 5"/>
+                <geom size=".05"/>
+            </composite>
+        </body>
+        <body name="curtain_west" pos="-6.025 0.25 1.55" euler="1.57 0 1.57">
+            <composite prefix="curtain_west" type="grid" count="17 6 1" spacing="0.49" offset="0 0 0">
+                <skin rgba=".15 .15 .15 1" inflate="0.001" subgrid="3"/>
+                <pin coord="0 5"/>
+                <pin coord="2 5"/>
+                <pin coord="4 5"/>
+                <pin coord="6 5"/>
+                <pin coord="8 5"/>
+                <pin coord="10 5"/>
+                <pin coord="12 5"/>
+                <pin coord="14 5"/>
+                <pin coord="16 5"/>
+                <geom size=".05"/>
+            </composite>
+        </body>
+
+        <body name="car_logo_01" pos="-.025 1.204 .832" euler="3.14 0 0">
+            <inertial pos="0 0 -0.05" mass="0.04" diaginertia="0.002 0.002 0.002"/>
+            <joint name="car_logo_01_joint" type="free"/>
+            <!--<joint name="car_logo_01_joint" type="slide" damping="10" axis="0 0 1"/>-->
+            <!--<site name="force_sensor_01" group="3"/>-->
+            <geom type="box" mass="0.001" size=".015 .015 .002" pos="0.015 0.015 -0.002" rgba=".8 .5 .5 1"/>
+            <geom type="box" mass="0.001" size=".015 .015 .002" pos="0.015 -.015 -0.002" rgba=".8 .5 .5 1"/>
+            <geom type="box" mass="0.001" size=".015 .015 .002" pos="-.015 0.015 -0.002" rgba=".8 .5 .5 1"/>
+            <geom type="box" mass="0.001" size=".015 .015 .002" pos="-.015 -.015 -0.002" rgba=".8 .5 .5 1"/>
+            <body name="car_logo_01_mesh" euler="0 0 0">
+                <geom type="mesh" mesh="car_logo" mass="0.001" condim="3" friction="1.8 0.005 0.0001" material="car_logo_png"/>
+                <body name="car_logo_01_mesh_leg_01" pos="-0.015 0.0145 -0.02" euler="0 0 0">
+                    <geom mass="0.001" size="0.005 0.02" pos="0 0 0" type="capsule" rgba="0 0 0 0"/>
+                </body>
+                <body name="car_logo_01_mesh_leg_02" pos="0.015 -0.0155 -0.02" euler="0 0 0">
+                    <geom mass="0.001" size="0.005 0.02" pos="0 0 0" type="capsule" rgba="0 0 0 0"/>
+                </body>
+            </body>
+        </body>
+        <!--<body name="car_logo_01_sticker" pos="-.019 1.13 .834">-->
+        <!--    <freejoint/>-->
+        <!--    <geom type="box" pos="-0.006 0 0" size=".03 .03 .0005" rgba=".4 .4 .7 0.3"/>-->
+        <!--    <geom type="box" pos="0.02 0.02 0" euler="0.785 0 0" size=".035 .005 .0005" rgba=".4 .4 .7 0.3"/>-->
+        <!--</body>-->
+        <body name="box_on_table" pos="-0.095 1.204 0.72">
+            <joint type="free"/>
+            <geom type="box" pos="0.07 0 .104" size="0.0304 0.0304 0.004" mass="1.0" rgba="0 0 0 0.4"/>
+            <geom type="box" size="0.155 0.1 0.1" mass="1.0" rgba="0.8 0.8 0.8 1" material="tablebox_material" euler="3.14 0 1.57"/>
+        </body>
+
+        <body name="tools_on_table" pos="-.1 1.5 0.63">
+            <joint type="free"/>
+            <geom mesh="piler_needle_mesh" type="mesh" euler="0 0 1.57" rgba="0.3 0.3 0.3 1"  pos="0.1 0 0"/>
+            <geom mesh="spanner_mesh" type="mesh" euler="0 0 1.57" rgba="0.6 0.6 0.6 1"  pos="-0.2 0 0"/>
+            <geom mesh="screw_driver_mesh" type="mesh" euler="0 0 1.57" rgba="0.6367 0.5781 0.4805 1"  pos="-0.4 -0.2 0"/>
+        </body>
+
+        <body name="trash" >
+            <geom type="mesh" mesh="trash_mesh" pos="-0.93 1.4 0.1" material="trash_material"/>
+        </body>
+
+        <body name="ceiling">
+            <geom size=".3 .3 0.01" pos="6 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.05 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.1 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.15 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.8 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.75 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.7 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 3.7 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+            <geom size=".3 .3 0.01" pos="6 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="4.05 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="2.1 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="0.15 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-1.8 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-3.75 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-5.7 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 3.05 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+            <geom size=".3 .3 0.01" pos="6 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.05 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.1 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.15 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.8 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.75 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.7 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 2.4 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+            <geom size=".3 .3 0.01" pos="6 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.05 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.1 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.15 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.8 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.75 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.7 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 1.75 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+            <geom size=".3 .3 0.01" pos="6 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="4.05 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="2.1 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="0.15 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-1.8 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-3.75 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-5.7 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 1.1 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+            <geom size=".3 .3 0.01" pos="6 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.05 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.1 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.15 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.8 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.75 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.7 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 0.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+            <geom size=".3 .3 0.01" pos="6 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.05 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.1 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.15 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.8 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.75 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.7 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 -0.2 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+            <geom size=".3 .3 0.01" pos="6 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="4.05 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="2.1 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="0.15 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-1.8 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-3.75 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-5.7 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 -0.85  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+
+            <geom size=".3 .3 0.01" pos="6 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.05 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.1 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.15 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.8 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.75 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.7 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 -1.5  2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+
+            <geom size=".3 .3 0.01" pos="6 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.05 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.1 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.15 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.8 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.75 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.7 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 -2.15   2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+
+            <geom size=".3 .3 0.01" pos="6 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="4.05 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="2.1 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="0.15 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-1.8 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-3.75 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1" material="ceilinglight"/>
+            <geom size=".3 .3 0.01" pos="-5.7 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 -2.8 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+            <geom size=".3 .3 0.01" pos="6 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="5.35 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.7 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="4.05 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="3.4 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.75 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="2.1 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="1.45 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.8 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="0.15 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-0.5 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.15 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-1.8 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-2.45 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.1 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-3.75 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-4.4 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.05 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-5.7 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+            <geom size=".3 .3 0.01" pos="-6.35 -3.45 2.5" euler="0 0 0" type="box" rgba="1 1 1 1"/>
+
+        </body>
+
+        <body name="table" pos="-.225 1.325 -.001">
+            <joint type="free"/>
+            <!--<geom mesh="tabletop" material="table" friction="1 0.005 0.0001" type="mesh" rgba="1 1 1 1" pos="0 0 0" euler="1.5708 0 0"/>-->
+            <geom name="table_desktop" pos="0 0 0.62" size="0.45 0.3 0.001" type="box" rgba="0 0 0 0"/>
+            <geom mesh="tabletop" material="table_material" type="mesh" rgba="1 1 1 1" pos="0 0 0" euler="1.5708 0 0"/>
+            <geom mesh="tablelegs" type="mesh" rgba="1 1 1 1" pos="0 0 0" euler="1.5708 0 0"/>
+        </body>
+        <body name="car_hood" pos="-3 2 0.71" euler="3.14 0 -0.390755556">
+            <geom type="mesh" mesh="car_hood" material="car_hood_png"/>
+            <body pos="-0.028 0.015 -0.036" euler="0 0 0">
+                <body pos="0.003 -0.006 0" euler="0.523333333 0 0">
+                    <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                    <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                        <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                        <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                            <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                            <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                                <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                                <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                                    <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                                    <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                                        <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body pos="0.032 -0.031 0" euler="0 0 0">
+                    <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                    <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                        <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                        <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                            <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                            <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                                <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                                <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                                    <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                                    <body pos="0.005464101615137755 -0.009464101615137754 0" euler="1.046666667 0 0">
+                                        <geom size="0.005 0.005 0.02" pos="0 0 0" type="box"/>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <contact>
+        <exclude body1="car_logo_01" body2="car_hood"/>
+        <exclude body1="car_logo_01_mesh_leg_01" body2="car_hood"/>
+        <exclude body1="car_logo_01_mesh_leg_02" body2="car_hood"/>
+        <!--<exclude body1="car_logo_01_mesh" body2="car_logo_01_sticker"/>-->
+        <exclude body1="car_logo_01_mesh" body2="box_on_table"/>
+        <exclude body1="car_logo_01_mesh_leg_01" body2="box_on_table"/>
+        <exclude body1="car_logo_01_mesh_leg_02" body2="box_on_table"/>
+        <!--<exclude body1="car_logo_01_mesh_leg_01" body2="car_logo_01_sticker"/>-->
+        <!--<exclude body1="car_logo_01_mesh_leg_02" body2="car_logo_01_sticker"/>-->
+    </contact>
+
+    <!--<actuator>-->
+    <!--    &lt;!&ndash;<position name="lift" joint="car_logo_01_joint" ctrlrange="-.2 .2" ctrllimited="true" kp="10"/>&ndash;&gt;-->
+    <!--    <adhesion name="car_logo_adhesion" body="car_logo_01" ctrlrange="0.1 0.2" gain="5"/>-->
+    <!--</actuator>-->
+
+    <!--<sensor>-->
+    <!--    <force site="force_sensor_01"/>-->
+    <!--</sensor>-->
+
+</mujoco>
